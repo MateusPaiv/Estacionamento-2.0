@@ -1,0 +1,41 @@
+unit LancarMovimentoView;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask,
+  SQLEd, Vcl.Buttons, SQLBtn, MovimentoController, SqlFun, SqlSis;
+
+type
+  TfrmLacamentoMvt = class(TForm)
+    Panel1: TPanel;
+    edtPlaca: TSQLEd;
+    btnLancaMvt: TSQLBtn;
+    procedure btnLancaMvtClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmLacamentoMvt: TfrmLacamentoMvt;
+
+implementation
+
+uses
+  System.DateUtils;
+
+{$R *.dfm}
+
+procedure TfrmLacamentoMvt.btnLancaMvtClick(Sender: TObject);
+var mvtController: TMovimentoController;
+    HoraHoje:TTime;
+begin
+   HoraHoje:=TimeOf(Now);
+   mvtController.lancarMovimento(Sistema.Hoje, Sistema.Hoje, 1, 1,edtPlaca.Text);
+end;
+
+end.

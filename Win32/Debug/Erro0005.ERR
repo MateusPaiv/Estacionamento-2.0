@@ -1,0 +1,94 @@
+
+
+Erro 1:               column "id_pess" is in a primary key; SQL executada: [Alter Table pessoas Alter Column id_pess Drop Not Null]
+
+Versao:               1
+Data/Hora:            17/07/2023 - 09:09:50
+Arquivo Err:          C:\Users\Eduardo\Documents\Delphi\Estacionamento\Win32\Debug\Erro0005.ERR
+
+StackTrace:           
+(GetCrashStackTrace)
+0076f5e5 Estacionamento.exe Data.DBXCommon   11080 TDBXContext.Error
+0095561a Estacionamento.exe Data.DBXDynalink   825 TDBXMethodTable.RaiseError
+00955fd3 Estacionamento.exe Data.DBXDynalink  1113 TDBXDynalinkCommand.CheckResult
+009560ff Estacionamento.exe Data.DBXDynalink  1157 TDBXDynalinkCommand.DerivedExecuteQuery
+0076bca9 Estacionamento.exe Data.DBXCommon    8963 TDBXCommand.ExecuteQuery
+0076c1ff Estacionamento.exe Data.DBXCommon    9150 TDBXMorphicCommand.ExecuteQuery
+007fdc86 Estacionamento.exe Data.SqlExpr      2747 TSQLConnection.ExecuteDirect
+00a3bfea Estacionamento.exe SqlSis           11236 TSQLEnv.ExecuteSql
+00a22ce2 Estacionamento.exe SqlSis            6955 EnviaComandosDDL
+00a297c9 Estacionamento.exe SqlSis            7586 SetFieldNotNull
+00a2ac04 Estacionamento.exe SqlSis            7722 CheckTables
+00a33202 Estacionamento.exe SqlSis            8972 TSQLInstall.InstallSystem
+00a687d0 Estacionamento.exe connection          63 Tdm.initConfigs
+00a68733 Estacionamento.exe connection          50 Tdm.DataModuleCreate
+0048d89f Estacionamento.exe System.Classes   17997 TDataModule.DoCreate
+0048d748 Estacionamento.exe System.Classes   17961 TDataModule.AfterConstruction
+0040a8c9 Estacionamento.exe System           19300 @AfterConstruction
+0048d728 Estacionamento.exe System.Classes   17957 TDataModule.Create
+006599ea Estacionamento.exe Vcl.Forms        11147 TApplication.CreateForm
+76ce00c7 KERNEL32.DLL                              BaseThreadInitThunk
+
+Comando 20: Alter Table pessoas Alter Column id_pess Drop Not Null
+Comando 19: Alter Table pessoas Alter Column id_pess Drop Not Null
+Comando 18: Alter Table pessoas Alter Column id_pess Drop Default
+Comando 17: Alter Table pessoas Alter Column id_pess Drop Default
+Comando 16: SELECT * FROM DICIONARIO WHERE TABELA = 'PESSOAS'
+Comando 15: SELECT column_name, is_nullable, datetime_precision, data_type FROM information_schema.columns 
+WHERE upper(table_schema)=upper('public') AND upper(table_name)=upper('pessoas')
+Comando 14: SELECT * FROM pessoas WHERE 1=2
+Comando 13: SELECT * FROM DICIONARIO WHERE TABELA = 'FORMATOSREL'
+Comando 12: SELECT column_name, is_nullable, datetime_precision, data_type FROM information_schema.columns 
+WHERE upper(table_schema)=upper('public') AND upper(table_name)=upper('formatosrel')
+
+Comando 11: SELECT * FROM formatosrel WHERE 1=2
+Comando 10: SELECT * FROM DICIONARIO WHERE TABELA = 'DICIONARIO'
+Comando 9: SELECT column_name, is_nullable, datetime_precision, data_type FROM information_schema.columns 
+WHERE upper(table_schema)=upper('public') AND upper(table_name)=upper('dicionario')
+
+Comando 8: SELECT * FROM dicionario WHERE 1=2
+Comando 7: SELECT current_schema
+Comando 6: -- Início dos Comandos DDL
+Comando 5: ALTER USER postgres WITH PASSWORD '####' CREATEDB CREATEROLE LOGIN
+Comando 4: select to_char(current_timestamp(3),'YYYY-MM-DD HH24:MI:SS.MS') as server_time, cast(EXTRACT(TIMEZONE 
+FROM current_timestamp)/3600 as integer) as offset
+Comando 3: select campo from dicionario where tabela='GERALOGCOMANDOS'
+Comando 2: SELECT Campo, Titulo FROM Dicionario WHERE Tabela='SYSTEM'
+Comando 1: select tabela,campo,tipo,titulo,mensagem,mascara,tamanho,casasdec,width,altera,empty,
+alinhamento,totalizacao,colbasetot,duplicity from dicionario where tabela='VERSAOSYSTEM' 
+order by tabela,campo
+
+Controle Execução 20: 
+Controle Execução 19: 
+Controle Execução 18: 
+Controle Execução 17: 
+Controle Execução 16: 
+Controle Execução 15: 
+Controle Execução 14: 
+Controle Execução 13: 
+Controle Execução 12: 
+Controle Execução 11: 
+Controle Execução 10: 
+Controle Execução 9: 
+Controle Execução 8: 
+Controle Execução 7: 
+Controle Execução 6: 
+Controle Execução 5: 
+Controle Execução 4: 
+Controle Execução 3: 
+Controle Execução 2: 
+Controle Execução 1: 
+
+Empresa:               / 
+Usuario:               / 
+Última Tecla:         0
+
+Sistema Operacional:  Windows NT / 2003 / XP / Versão: 10.0.19044
+Memória Total:        2047 MB, (Usada: 55,000 %)
+Endereço IP Local:    192.168.50.230
+Nome do Computador:   DESKTOP-CGKE8G9
+Banco de Dados:       POSTGRESQL
+Endereço Servidor:    localhost
+Base de Dados:        estacionamento
+Compilador:           VER340 (Delphi 10.4 Sydney)
+

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2023/07/12 11:11:13.178,=C:\Users\Eduardo\Documents\Delphi\Estacionamento\Unit1.pas</Transaction>
+    <Transaction>2023/07/12 11:11:22.748,C:\Users\Eduardo\Documents\Delphi\Estacionamento\views\main.pas=C:\Users\Eduardo\Documents\Delphi\Estacionamento\Unit1.pas</Transaction>
+    <Transaction>2023/07/12 11:11:22.748,C:\Users\Eduardo\Documents\Delphi\Estacionamento\views\main.dfm=C:\Users\Eduardo\Documents\Delphi\Estacionamento\Unit1.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

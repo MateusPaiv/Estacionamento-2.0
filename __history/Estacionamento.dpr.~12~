@@ -1,0 +1,21 @@
+program Estacionamento;
+
+uses
+  Vcl.Forms,
+  main in 'views\main.pas' {frmMain},
+  ClienteView in 'views\ClienteView.pas' {frmClienteView},
+  connection in 'model\connection.pas' {dm: TDataModule},
+  clienteController in 'controllers\clienteController.pas',
+  FuncionarioView in 'views\FuncionarioView.pas' {frmFuncionario};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmMain, frmMain);
+  Application.CreateForm(Tdm, dm);
+  Application.CreateForm(TfrmFuncionario, frmFuncionario);
+  ReportMemoryLeaksOnShutdown := true;
+  Application.Run;
+end.

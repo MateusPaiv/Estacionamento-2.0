@@ -1,0 +1,11 @@
+unit configBanco;
+
+interface
+type
+  TConfigBanco = class
+    private
+    public
+  end;
+implementation
+
+end.

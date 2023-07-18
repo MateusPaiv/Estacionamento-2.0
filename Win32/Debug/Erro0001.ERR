@@ -1,0 +1,276 @@
+
+
+Erro 1:               syntax error at or near "-"; SQL executada: [CREATE TABLE pessoas (
+id_pess NUMERIC(8)
+, nome VARCHAR(50)
+, sobrenome VARCHAR(50)
+, cpf-cnpj VARCHAR(14)
+, tipo_pessoa VARCHAR(1)
+)
+]
+
+Versao:               1
+Data/Hora:            17/07/2023 - 08:43:25
+Arquivo Err:          C:\Users\Eduardo\Documents\Delphi\Estacionamento\Win32\Debug\Erro0001.ERR
+
+StackTrace:           
+(GetCrashStackTrace)
+0076f5e5 Estacionamento.exe Data.DBXCommon   11080 TDBXContext.Error
+0095561a Estacionamento.exe Data.DBXDynalink   825 TDBXMethodTable.RaiseError
+00955fd3 Estacionamento.exe Data.DBXDynalink  1113 TDBXDynalinkCommand.CheckResult
+009560ff Estacionamento.exe Data.DBXDynalink  1157 TDBXDynalinkCommand.DerivedExecuteQuery
+0076bca9 Estacionamento.exe Data.DBXCommon    8963 TDBXCommand.ExecuteQuery
+0076c1ff Estacionamento.exe Data.DBXCommon    9150 TDBXMorphicCommand.ExecuteQuery
+007fdc86 Estacionamento.exe Data.SqlExpr      2747 TSQLConnection.ExecuteDirect
+00a3bfea Estacionamento.exe SqlSis           11236 TSQLEnv.ExecuteSql
+00a22ce2 Estacionamento.exe SqlSis            6955 EnviaComandosDDL
+00a28975 Estacionamento.exe SqlSis            7436 CriaTabela
+00a2b89c Estacionamento.exe SqlSis            7811 CheckTables
+00a33202 Estacionamento.exe SqlSis            8972 TSQLInstall.InstallSystem
+00a683f0 Estacionamento.exe connection          61 Tdm.initConfigs
+00a68353 Estacionamento.exe connection          48 Tdm.DataModuleCreate
+0048d89f Estacionamento.exe System.Classes   17997 TDataModule.DoCreate
+0048d748 Estacionamento.exe System.Classes   17961 TDataModule.AfterConstruction
+0040a8c9 Estacionamento.exe System           19300 @AfterConstruction
+0048d728 Estacionamento.exe System.Classes   17957 TDataModule.Create
+006599ea Estacionamento.exe Vcl.Forms        11147 TApplication.CreateForm
+76ce00c7 KERNEL32.DLL                              BaseThreadInitThunk
+
+Comando 20: CREATE TABLE pessoas (
+id_pess NUMERIC(8)
+, nome VARCHAR(50)
+, sobrenome VARCHAR(50)
+
+, cpf-cnpj VARCHAR(14)
+, tipo_pessoa VARCHAR(1)
+)
+
+Comando 19: CREATE TABLE pessoas (
+id_pess NUMERIC(8)
+, nome VARCHAR(50)
+, sobrenome VARCHAR(50)
+
+, cpf-cnpj VARCHAR(14)
+, tipo_pessoa VARCHAR(1)
+)
+
+Comando 18:  BEGIN; DELETE FROM Dicionario WHERE Tabela='FORMATOSREL' And Campo='LOJA'; INSERT 
+INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, CASASDEC,
+ WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, VERSAO) VALUES('FORMATOSREL',
+ 'LOJA', 'C', 'Loja', 'Loja do Formato (999=Todas)', '', 3, 0, 35, 'N', 'N', '', 
+'', '', '', '1'); DELETE FROM Dicionario WHERE Tabela='FORMATOSREL' And Campo='USUARIO';
+ INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO,
+ CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY,
+ VERSAO) VALUES('FORMATOSREL', 'USUARIO', 'C', 'Usu', 'Usuário do Formato(9999=Todos)
+', '', 5, 0, 40, 'N', 'N', '', '', '', '', '1'); DELETE FROM Dicionario WHERE Tabela='FORMATOSREL' 
+And Campo='GRUSUARIO'; INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM,
+ MASCARA, TAMANHO, CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT,
+ DUPLICITY, VERSAO) VALUES('FORMATOSREL', 'GRUSUARIO', 'C', 'GrUsu', 'Grupo de Usuário 
+do Formato(999=Todos)', '', 3, 0, 40, 'N', 'N', '', '', '', '', '1'); DELETE FROM 
+Dicionario WHERE Tabela='FORMATOSREL' And Campo='NOMEREL'; INSERT INTO Dicionario 
+(TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, CASASDEC, WIDTH, ALTERA,
+ EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, VERSAO) VALUES('FORMATOSREL',
+ 'NOMEREL', 'C', 'Relatório', 'Nome do Relatório', '', 100, 0, 250, 'N', 'N', '',
+ '', '', '', '1'); DELETE FROM Dicionario WHERE Tabela='FORMATOSREL' And Campo='NOMEFORMATO';
+ INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO,
+ CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY,
+ VERSAO) VALUES('FORMATOSREL', 'NOMEFORMATO', 'C', 'Formato', 'Nome do Formato', 
+'', 200, 0, 250, 'N', 'N', '', '', '', '', '1'); DELETE FROM Dicionario WHERE Tabela='FORMATOSREL' 
+And Campo='CONFIG'; INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM,
+ MASCARA, TAMANHO, CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT,
+ DUPLICITY, VERSAO) VALUES('FORMATOSREL', 'CONFIG', 'M', 'Config', 'Configuração 
+do Formato', '', 0, 0, 50, 'N', 'S', '', '', '', '', '1'); DELETE FROM Dicionario 
+WHERE Tabela='FORMATOSREL' And Campo='FORMATOCONFIG'; INSERT INTO Dicionario (TABELA,
+ CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, CASASDEC, WIDTH, ALTERA, EMPTY,
+ ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, VERSAO) VALUES('FORMATOSREL', 'FORMATOCONFIG',
+ 'M', 'Config', 'Configuração do Formato', '', 0, 0, 50, 'N', 'S', '', '', '', '',
+ '1'); DELETE FROM Dicionario WHERE Tabela='FORMATOSREL' And Campo='STATUS'; INSERT 
+INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, CASASDEC,
+ WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, VERSAO) VALUES('FORMATOSREL',
+ 'STATUS', 'C', 'Status', 'Status do Formato', '', 1, 0, 30, 'S', 'S', '', '', '',
+ '', '1');  END; 
+Comando 17: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('FORMATOSREL', 'STATUS', 'C', 'Status', 'Status do Formato', '', 1,
+ 0, 30, 'S', 'S', '', '', '', '', '1')
+Comando 16: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('FORMATOSREL', 'FORMATOCONFIG', 'M', 'Config', 'Configuração do Formato',
+ '', 0, 0, 50, 'N', 'S', '', '', '', '', '1')
+Comando 15: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('FORMATOSREL', 'CONFIG', 'M', 'Config', 'Configuração do Formato',
+ '', 0, 0, 50, 'N', 'S', '', '', '', '', '1')
+Comando 14: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('FORMATOSREL', 'NOMEFORMATO', 'C', 'Formato', 'Nome do Formato', '',
+ 200, 0, 250, 'N', 'N', '', '', '', '', '1')
+Comando 13: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('FORMATOSREL', 'NOMEREL', 'C', 'Relatório', 'Nome do Relatório', '',
+ 100, 0, 250, 'N', 'N', '', '', '', '', '1')
+Comando 12: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('FORMATOSREL', 'GRUSUARIO', 'C', 'GrUsu', 'Grupo de Usuário do Formato(999=Todos)
+', '', 3, 0, 40, 'N', 'N', '', '', '', '', '1')
+Comando 11: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('FORMATOSREL', 'USUARIO', 'C', 'Usu', 'Usuário do Formato(9999=Todos)
+', '', 5, 0, 40, 'N', 'N', '', '', '', '', '1')
+Comando 10: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('FORMATOSREL', 'LOJA', 'C', 'Loja', 'Loja do Formato (999=Todas)',
+ '', 3, 0, 35, 'N', 'N', '', '', '', '', '1')
+Comando 9: CREATE TABLE formatosrel (
+Loja VARCHAR(3) NOT NULL
+, Usuario VARCHAR(5) NOT NULL
+,
+ GrUsuario VARCHAR(3) NOT NULL
+, NomeRel VARCHAR(100) NOT NULL
+, NomeFormato VARCHAR(200)
+ NOT NULL
+, Config TEXT
+, FormatoConfig TEXT
+, Status VARCHAR(1)
+)
+
+Comando 8: CREATE TABLE formatosrel (
+Loja VARCHAR(3) NOT NULL
+, Usuario VARCHAR(5) NOT NULL
+,
+ GrUsuario VARCHAR(3) NOT NULL
+, NomeRel VARCHAR(100) NOT NULL
+, NomeFormato VARCHAR(200)
+ NOT NULL
+, Config TEXT
+, FormatoConfig TEXT
+, Status VARCHAR(1)
+)
+
+Comando 7:  BEGIN; DELETE FROM Dicionario WHERE Tabela='DICIONARIO' And Campo='TABELA'; INSERT 
+INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, CASASDEC,
+ WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, VERSAO) VALUES('DICIONARIO',
+ 'TABELA', 'C', 'Tabela', 'Nome da Tabela no Sistema', '', 30, 0, 250, 'N', 'N', 
+'', '', '', '', '1'); DELETE FROM Dicionario WHERE Tabela='DICIONARIO' And Campo='CAMPO';
+ INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO,
+ CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY,
+ VERSAO) VALUES('DICIONARIO', 'CAMPO', 'C', 'Tabela', 'Nome do Campo da Tabela', 
+'', 30, 0, 250, 'N', 'N', '', '', '', '', '1'); DELETE FROM Dicionario WHERE Tabela='DICIONARIO' 
+And Campo='TIPO'; INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, 
+MASCARA, TAMANHO, CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT,
+ DUPLICITY, VERSAO) VALUES('DICIONARIO', 'TIPO', 'C', 'Tp', 'Tipo do Campo da Tabela',
+ '', 1, 0, 25, 'N', 'S', '', '', '', '', '1'); DELETE FROM Dicionario WHERE Tabela='DICIONARIO' 
+And Campo='TITULO'; INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM,
+ MASCARA, TAMANHO, CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT,
+ DUPLICITY, VERSAO) VALUES('DICIONARIO', 'TITULO', 'C', 'Título', 'Título do Campo',
+ '', 50, 0, 250, 'N', 'S', '', '', '', '', '1'); DELETE FROM Dicionario WHERE Tabela='DICIONARIO' 
+And Campo='MENSAGEM'; INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM,
+ MASCARA, TAMANHO, CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT,
+ DUPLICITY, VERSAO) VALUES('DICIONARIO', 'MENSAGEM', 'C', 'Mensagem', 'Mensagem para 
+o campo', '', 255, 0, 300, 'N', 'S', '', '', '', '', '1'); DELETE FROM Dicionario 
+WHERE Tabela='DICIONARIO' And Campo='MASCARA'; INSERT INTO Dicionario (TABELA, CAMPO,
+ TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO,
+ TOTALIZACAO, COLBASETOT, DUPLICITY, VERSAO) VALUES('DICIONARIO', 'MASCARA', 'C',
+ 'Mascara', 'Formato para o campo', '', 50, 0, 200, 'N', 'S', '', '', '', '', '1')
+; DELETE FROM Dicionario WHERE Tabela='DICIONARIO' And Campo='TAMANHO'; INSERT INTO 
+Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, CASASDEC, WIDTH,
+ ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, VERSAO) VALUES('DICIONARIO',
+ 'TAMANHO', 'N', 'Tam', 'Tamanho do campo', '', 5, 0, 50, 'N', 'S', '', '', '', '',
+ '1'); DELETE FROM Dicionario WHERE Tabela='DICIONARIO' And Campo='CASASDEC'; INSERT 
+INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, CASASDEC,
+ WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, VERSAO) VALUES('DICIONARIO',
+ 'CASASDEC', 'N', 'Dec', 'Casas Decimais do campo', '', 5, 0, 50, 'N', 'S', '', '',
+ '', '', '1'); DELETE FROM Dicionario WHERE Tabela='DICIONARIO' And Campo='WIDTH';
+ INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO,
+ CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY,
+ VERSAO) VALUES('DICIONARIO', 'WIDTH', 'N', 'Width', 'Tamanho em Pixeis para o campo',
+ '', 5, 0, 50, 'N', 'S', '', '', '', '', '1'); DELETE FROM Dicionario WHERE Tabela='DICIONARIO' 
+And Campo='ALTERA'; INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM,
+ MASCARA, TAMANHO, CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT,
+ DUPLICITY, VERSAO) VALUES('DICIONARIO', 'ALTERA', 'C', 'Alt', 'Campo permite alteração',
+ '', 1, 0, 25, 'N', 'S', '', '', '', '', '1'); DELETE FROM Dicionario WHERE Tabela='DICIONARIO' 
+And Campo='EMPTY'; INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM,
+ MASCARA, TAMANHO, CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT,
+ DUPLICITY, VERSAO) VALUES('DICIONARIO', 'EMPTY', 'C', 'Empty', 'Campo permite vazio',
+ '', 1, 0, 25, 'N', 'S', '', '', '', '', '1'); DELETE FROM Dicionario WHERE Tabela='DICIONARIO' 
+And Campo='ALINHAMENTO'; INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM,
+ MASCARA, TAMANHO, CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT,
+ DUPLICITY, VERSAO) VALUES('DICIONARIO', 'ALINHAMENTO', 'C', 'Al', 'Alinhamento do 
+campo (2=Centro,3=Direita)', '', 1, 0, 25, 'N', 'S', '', '', '', '', '1'); DELETE 
+FROM Dicionario WHERE Tabela='DICIONARIO' And Campo='TOTALIZACAO'; INSERT INTO Dicionario 
+(TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, CASASDEC, WIDTH, ALTERA,
+ EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, VERSAO) VALUES('DICIONARIO',
+ 'TOTALIZACAO', 'C', 'Tot', 'Forma de totalização do campo em relatórios', '', 1,
+ 0, 25, 'N', 'S', '', '', '', '', '1'); DELETE FROM Dicionario WHERE Tabela='DICIONARIO' 
+And Campo='COLBASETOT'; INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM,
+ MASCARA, TAMANHO, CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT,
+ DUPLICITY, VERSAO) VALUES('DICIONARIO', 'COLBASETOT', 'C', 'Col Base Tot', 'Coluna 
+base para totalização', '', 30, 0, 250, 'N', 'S', '', '', '', '', '1'); DELETE FROM 
+Dicionario WHERE Tabela='DICIONARIO' And Campo='DUPLICITY'; INSERT INTO Dicionario 
+(TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, CASASDEC, WIDTH, ALTERA,
+ EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, VERSAO) VALUES('DICIONARIO',
+ 'DUPLICITY', 'C', 'Dupl', 'Campo permite duplicidade no cadastro (1=Avisa, 2=Impede)
+', '', 1, 0, 25, 'N', 'S', '', '', '', '', '1'); DELETE FROM Dicionario WHERE Tabela='DICIONARIO' 
+And Campo='VERSAO'; INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM,
+ MASCARA, TAMANHO, CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT,
+ DUPLICITY, VERSAO) VALUES('DICIONARIO', 'VERSAO', 'C', 'Versão', 'Versão do Sistema 
+Que Criou o Campo', '', 10, 0, 100, 'N', 'S', '', '', '', '', '1');  END; 
+Comando 6: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('DICIONARIO', 'VERSAO', 'C', 'Versão', 'Versão do Sistema Que Criou 
+o Campo', '', 10, 0, 100, 'N', 'S', '', '', '', '', '1')
+Comando 5: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('DICIONARIO', 'DUPLICITY', 'C', 'Dupl', 'Campo permite duplicidade 
+no cadastro (1=Avisa, 2=Impede)', '', 1, 0, 25, 'N', 'S', '', '', '', '', '1')
+Comando 4: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('DICIONARIO', 'COLBASETOT', 'C', 'Col Base Tot', 'Coluna base para 
+totalização', '', 30, 0, 250, 'N', 'S', '', '', '', '', '1')
+Comando 3: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('DICIONARIO', 'TOTALIZACAO', 'C', 'Tot', 'Forma de totalização do 
+campo em relatórios', '', 1, 0, 25, 'N', 'S', '', '', '', '', '1')
+Comando 2: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('DICIONARIO', 'ALINHAMENTO', 'C', 'Al', 'Alinhamento do campo (2=Centro,
+3=Direita)', '', 1, 0, 25, 'N', 'S', '', '', '', '', '1')
+Comando 1: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('DICIONARIO', 'EMPTY', 'C', 'Empty', 'Campo permite vazio', '', 1,
+ 0, 25, 'N', 'S', '', '', '', '', '1')
+
+Controle Execução 20: 
+Controle Execução 19: 
+Controle Execução 18: 
+Controle Execução 17: 
+Controle Execução 16: 
+Controle Execução 15: 
+Controle Execução 14: 
+Controle Execução 13: 
+Controle Execução 12: 
+Controle Execução 11: 
+Controle Execução 10: 
+Controle Execução 9: 
+Controle Execução 8: 
+Controle Execução 7: 
+Controle Execução 6: 
+Controle Execução 5: 
+Controle Execução 4: 
+Controle Execução 3: 
+Controle Execução 2: 
+Controle Execução 1: 
+
+Empresa:               / 
+Usuario:               / 
+Última Tecla:         0
+
+Sistema Operacional:  Windows NT / 2003 / XP / Versão: 10.0.19044
+Memória Total:        2047 MB, (Usada: 50,000 %)
+Endereço IP Local:    192.168.50.230
+Nome do Computador:   DESKTOP-CGKE8G9
+Banco de Dados:       POSTGRESQL
+Endereço Servidor:    localhost
+Base de Dados:        estacionamento
+Compilador:           VER340 (Delphi 10.4 Sydney)
+

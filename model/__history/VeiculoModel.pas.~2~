@@ -1,0 +1,11 @@
+unit VeiculoModel;
+
+interface
+type
+  TVeiculo = class
+    private
+    public
+  end;
+implementation
+
+end.

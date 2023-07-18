@@ -1,0 +1,55 @@
+unit ClienteModel;
+
+interface
+uses BaseList;
+
+type TCliente = class
+  private
+    Fnome: string;
+    Fsobrenome: string;
+    Fcpf: string;
+  public
+    constructor Create;
+    destructor Destroy; override;
+    property nome: string read Fnome write Fnome;
+    property sobrenome: string read Fsobrenome write Fsobrenome;
+    property cpf: string read Fcpf write Fcpf;
+end;
+var Cliente:TCliente;
+type
+  TListaClientes = class(TBaseList12)
+  private
+  public
+    procedure Add(Value: TCliente);
+    function Get(Index:integer):TCliente;
+
+
+  end;
+implementation
+
+{ TCliente }
+
+constructor TCliente.Create;
+begin
+   TListaClientes.Create;
+end;
+
+destructor TCliente.Destroy;
+begin
+   Destroy;
+   inherited;
+end;
+
+{ TListaClientes }
+
+procedure TListaClientes.Add(Value: TCliente);
+begin
+   inherited Add(value);
+end;
+
+function TListaClientes.Get(Index: integer): TCliente;
+begin
+   Result := TCliente(inherited Get(index));
+end;
+
+end.

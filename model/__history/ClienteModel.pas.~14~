@@ -1,0 +1,35 @@
+unit ClienteModel;
+
+interface
+uses BaseList;
+
+type TCliente = class
+  private
+    Fnome: string;
+    Fsobrenome: string;
+    Fcpf: string;
+  public
+    constructor Create;
+    destructor Destroy; override;
+    property nome: string read Fnome write Fnome;
+    property sobrenome: string read Fsobrenome write Fsobrenome;
+    property cpf: string read Fcpf write Fcpf;
+end;
+
+implementation
+
+{ TCliente }
+
+constructor TCliente.Create;
+begin
+
+end;
+
+destructor TCliente.Destroy;
+begin
+   Destroy;
+   inherited;
+end;
+
+
+end.

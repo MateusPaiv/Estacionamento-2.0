@@ -1,0 +1,47 @@
+unit cadCliente;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask,
+  SQLEd, Vcl.Buttons, SQLBtn,clienteController;
+
+type
+  TfrmCadCliente = class(TForm)
+    pnlMain: TPanel;
+    edtNome: TSQLEd;
+    edtSobrenome: TSQLEd;
+    edtCpfCnpj: TSQLEd;
+    btnCad: TSQLBtn;
+    Label1: TLabel;
+    procedure btnCadClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadCliente: TfrmCadCliente;
+
+implementation
+
+
+{$R *.dfm}
+
+
+procedure TfrmCadCliente.btnCadClick(Sender: TObject);
+var tipoPessoa:String;
+begin
+
+   if Length(edtCpfCnpj.Text) > 11 then tipoPessoa := 'J' else tipoPessoa := 'F';
+   clientController.insertClientes(edtNome.TextEnter, edtSobrenome.TextEnter,edtCpfCnpj.Text,tipoPessoa,StrToDate(edtDataNasc.Text));
+
+   edtNome.Clear;
+   edtSobrenome.Clear;
+   edtCpfCnpj.Clear;
+   edtDataNasc.Clear;
+end;
+
+end.

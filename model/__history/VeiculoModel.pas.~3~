@@ -1,0 +1,17 @@
+unit VeiculoModel;
+
+interface
+type
+  TVeiculo = class
+    private
+      Fmodelo: string;
+      Fplaca: string;
+      Fano: string;
+    public
+      property modelo: string read Fmodelo write Fmodelo;
+      property placa: string read Fplaca write Fplaca;
+      property ano: string read Fano write Fano;
+  end;
+implementation
+
+end.

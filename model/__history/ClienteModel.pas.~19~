@@ -1,0 +1,41 @@
+unit ClienteModel;
+
+interface
+uses BaseList,Generics.Collections;
+
+type TCliente = class
+  private
+    Fnome: string;
+    Fsobrenome: string;
+    Fcpf: string;
+  public
+    constructor Create(const nome,sobrenome,cpf:string);
+    destructor Destroy; override;
+    property nome: string read Fnome write Fnome;
+    property sobrenome: string read Fsobrenome write Fsobrenome;
+    property cpf: string read Fcpf write Fcpf;
+end;
+var ListaCliente: TObjectList<TCliente>;
+
+implementation
+
+{ TCliente }
+
+
+
+
+constructor TCliente.Create(const nome, sobrenome, cpf: string);
+begin
+  Fnome := nome;
+  Fsobrenome:= sobrenome;
+  FCpf:= cpf;
+end;
+
+destructor TCliente.Destroy;
+begin
+   Destroy;
+   inherited;
+end;
+
+
+end.

@@ -1,0 +1,181 @@
+unit main;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Menus, Vcl.ExtCtrls,
+  Vcl.Buttons, SQLBtn, ClienteView, FuncionarioView, LancarMovimentoView;
+
+type
+  TfrmMain = class(TForm)
+    pnlMain: TPanel;
+    pnlTopo: TPanel;
+    pnlHome: TPanel;
+    Label2: TLabel;
+    btnCadFunc: TSQLBtn;
+    btnCadCliente: TSQLBtn;
+    pnlMenu: TPanel;
+    pnlContent: TPanel;
+    pnlDescVagas: TPanel;
+    Label1: TLabel;
+    Panel2: TPanel;
+    Label3: TLabel;
+    pnlConteudoEstacionamento: TPanel;
+    pnlBotoes: TPanel;
+    pnlLancaMov: TPanel;
+    btnLancarMovimento: TSQLBtn;
+    Panel1: TPanel;
+    Panel3: TPanel;
+    btnBaixaMvt: TSQLBtn;
+    procedure btnCadClienteClick(Sender: TObject);
+    procedure btnCadFuncClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure btnLancarMovimentoClick(Sender: TObject);
+    procedure btnBaixaMvtClick(Sender: TObject);
+  private
+    { Private declarations }
+    cadCliente: TfrmClienteView;
+    cadFuncionario: TfrmFuncionarioView;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmMain: TfrmMain;
+
+implementation
+
+uses
+  SplashView;
+
+{$R *.dfm}
+
+procedure TfrmMain.btnBaixaMvtClick(Sender: TObject);
+var
+    Linha, Coluna, Quantidade: Integer;
+    IndiceHorizontal, IndiceVertical, Total, TotalGeral: Real;
+    Código: String;
+begin
+    // isto é para evitar que o usuário ache que a impressão está demorando e acione o botão diversas vezes provocando diversas impressões
+    Cursor := crHourGlass
+    // coloca a ampulheta para informar ao usuário que o computador está efetuando um trabalho
+    IndiceHorizontal := Printer.PageWidth / 960;
+    IndiceVertical := Printer.PageHeight / 1584;
+    Estes dois índices horizontal e vertical são utilizados para ajustar a
+      impressão em qualquer impressora,
+      quer seja matricial ou jato de tinta em qualquer resolução,
+      os números 960 e 1584 foram tirados da minha matricial com uma resolução
+      de 120 x 144 pixels e usando papel A4.Pegue a sua impressora,
+      escolha um tamanho de papel e uma resolução qualquer e dê um showmessage
+      (inttostr(Printer.PageWidth) + ‘ ‘ + inttostr(Printer.PageHeight))
+      para achar Estes números.Na sua configuração inicial as duas divisões
+      terão como resultado o número um,
+      porém se modificar a resolução da impressora, ou o tamanho
+    do papel verá que Estes números mudarão,
+      Estes números serão utilizados logo abaixo.Printer.Font.Name := ‘ Arial ’;
+    // utilizo a fonte arial por ser uma fonte que normalmente está em todos os computadores
+    Printer.Orientation := poPortrait;
+    // aqui certifica-se que o papel será impresso na forma retrato, pois poderia estar configurado para Printer.Orientation := poLandScape que é o modo paisagem, caso mude para o modo paisagem o printer.pagewidth e printer.pageheight devem ter os seus valores invertidos
+    Printer.BeginDoc; // inicia o serviço de impressão
+    Linha := 0;
+    Quantidade := 0;
+    TotalGeral := 0; // zera as variáveis;
+    With Table1 do // pega os dados de uma tabela, mas poderia ser uma Query
+    Begin
+      First; // é para confirmar que a tabela está no primeiro registro desejado, esta tabela poderá estar filtrada, caso exista uma DBGrid o usuário poderá ter selecionado algo e não estar no primeiro registro
+      While not eof do // para imprimir toda a tabela
+      Begin
+        With Printer.Canvas do
+        // para evitar a digitação de printer.canvas em cada comando de impressão, o canvas é o responsável pelo processo de “desenho” no windows
+        Begin
+          If Linha = 0 then
+          // verifica se é início de página para colocar um cabeçalho
+          Begin;
+            Font.Size := 10; // tamanho da fonte para o cabeçalho
+            Coluna := Round(150 * IndiceHorizontal);
+            // aqui, é efetuada a correção para a resolução horizontal da impressora onde 150 é a posição na coluna onde estou querendo imprimir, nos arredondamentos efetuados o erro máximo será de um pixel, o que não será notado pelo usuário
+            TextOut(Coluna, Linha, ‘ NOME da EMPRESA ’);
+            // a coluna e a linha TEM que ser número inteiro, o texto entre aspas poderá ser uma variável tipo string
+            Coluna := Round(720 * IndiceHorizontal);
+            TextOut(Coluna, Linha, DateToStr(Now)); // impressão da data
+            Linha := Linha + Round(23 * IndiceVertical);
+            aqui pega o valor da Linha,
+              faz o acréscimo e a correção da resolução vertical da impressora
+              Coluna := Round(250 * IndiceHorizontal);
+            TextOut(Coluna, Linha, ‘ Venda entre: ‘ + MaskEdit1.Text + ‘ e ‘ +
+              MaskEdit2.Text)); // imprime a informação do período
+            Linha := Linha + Round(28 * IndiceVertical); Font.Size := 9;
+            Coluna := 0; TextOut(Coluna, Linha, ‘ Código ’);
+            // este e os seguintes são os nomes das colunas a serem impressas
+            Coluna := Round(90 * IndiceHorizontal);
+            TextOut := Round(Coluna, Linha, ‘ QUANT ’);
+            Coluna := Round(170 * IndiceHorizontal);
+            TextOut(Coluna, Linha, ‘ valor ’);
+            // acrescente quantas colunas a mais precisar utilizando o mesmo princípio
+            Linha := Linha + (Round(25 * IndiceVertical);
+          End;
+          Coluna := 0;
+          Código := inttostr(FieldByName(‘ CODIGOPRODUTO ’).AsInteger);
+          // transforma o código de inteiro para string para a impressão, para mostrar a utilização de variável e utilizando o tipo de campo;
+          TextOut(Coluna, Linha, Código); // imprime o código do produto
+          Coluna := Round(90 * IndiceHorizontal);
+          TextOut(Coluna, Linha, inttostr(FieldByName(´ QUANTIDADEVENDIDA ’)
+            .Value)); // imprime sem utilização de variável e utilizando VALUE em vez do tipo do campo
+          Total := FieldByName(‘ Total ’).AsFloat;
+          // joga o valor do total em uma variável;
+          TotalGeral := TotalGeral + Total;
+          // soma o total geral para impressão no final
+          Quantidade := Quantidade + 1;
+          // soma a quantidade de produtos vendidos para a impressão no final
+          Coluna := Round(170 * IndiceHorizontal);
+          TextOut(Coluna, Linha, FloatToStrF(Total, ffFixed, 10, 2));
+          // pega o valor e formata o mesmo para um valor fixo com duas casas decimais. O ffFixed também pode ser ffGeneral, ffExponent, ffNumber ou ffCurrency, veja o help do Delphi
+          Linha := Linha + Round(20 * IndiceVertical);
+          If Linha >= 1440 then
+          // verifica se já chegou no local onde quero terminar a impressão da página
+          Begin
+            Linha := 0;
+            // zera o valor da linha para a impressão do cabeçalho na outra página, se quiser fazer controle de impressão de número de página também pode colocar aqui para que o mesmo seja impresso no final da página
+            Printer.NewPage; // ejeta a página
+            // Se quiser pode acrescentar um contador de páginas aqui e imprimir o número da página
+          End;
+        End;
+      End;
+      Next; // vai para o próximo registro da tabela
+    End;
+    Printer.Canvas.Font.Size := 10; // troca o tamanho da fonte
+    Linha := Linha + Round(25 * IndiceVertical);
+    If Linha > 1400 then
+    // verifica a posição no papel para ter certeza que a impressão ficará inteira na mesma página
+      Printer.NewPage;
+    Coluna := 0;
+    Printer.Canvas.TextOut(Coluna, Linha, ‘ Quantidade Total de ÍTENS
+      : ’ + inttostr(Quantidade));
+    // aqui também poderia ser a quantidade total de produtos vendidos, é só uma questão de escolha do que vai ser impresso
+    Linha := Linha + Round(25 * IndiceVertical);
+    Printer.Canvas.TextOut(Coluna, Linha, ‘ valor Total
+      : ‘ + FloatToStrF(TotalGeral, ffCurrency, 10, 2);
+      // aqui em vez de ffFixed utilizei ffCurrency para que na impressão apareça o R$
+      Printer.EndDoc;
+      // com este comando acaba a impressão ejetando a página, caso não seja colocado a ejeção acontecerá porém o documento demorará mais tempo para ser impresso
+      Cursor := crDefault; // volta o cursor ao estado original
+end;
+
+    procedure TfrmMain.btnCadClienteClick(Sender: TObject);
+    begin cadCliente := TfrmClienteView.Create(self); cadCliente.ShowModal; end;
+
+    procedure TfrmMain.btnCadFuncClick(Sender: TObject);
+    begin cadFuncionario := TfrmFuncionarioView.Create(self);
+    cadFuncionario.ShowModal; end;
+
+    procedure TfrmMain.btnLancarMovimentoClick(Sender: TObject);
+    begin frmLacamentoMvt := TfrmLacamentoMvt.Create(nil);
+    frmLacamentoMvt.ShowModal; end;
+
+    procedure TfrmMain.FormCreate(Sender: TObject);
+    begin frmSplash := TfrmSplash.Create(nil); try frmSplash.ShowModal;
+    finally FreeAndNil(frmSplash); end; end;
+
+    end.

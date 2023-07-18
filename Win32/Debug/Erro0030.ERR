@@ -1,0 +1,129 @@
+
+
+Erro 1:               invalid input syntax for type integer: "Samuel"
+
+Data/Hora:            18/07/2023 - 11:54:24
+Arquivo Err:          C:\Users\Eduardo\Documents\Delphi\Estacionamento\Win32\Debug\Erro0030.ERR
+
+StackTrace:           
+(GetCrashStackTrace)
+00781055 Estacionamento.exe Data.DBXCommon        11080 TDBXContext.Error
+009646c2 Estacionamento.exe Data.DBXDynalink        825 TDBXMethodTable.RaiseError
+0096507b Estacionamento.exe Data.DBXDynalink       1113 TDBXDynalinkCommand.CheckResult
+009651a7 Estacionamento.exe Data.DBXDynalink       1157 TDBXDynalinkCommand.DerivedExecuteQuery
+0077d719 Estacionamento.exe Data.DBXCommon         8963 TDBXCommand.ExecuteQuery
+0077dc6f Estacionamento.exe Data.DBXCommon         9150 TDBXMorphicCommand.ExecuteQuery
+0080cd2e Estacionamento.exe Data.SqlExpr           2747 TSQLConnection.ExecuteDirect
+00a2696c Estacionamento.exe SqlSis                 3085 GravaSQL
+00a27182 Estacionamento.exe SqlSis                 3169 TSQLEnv.SendToServer
+00a27568 Estacionamento.exe SqlSis                 3206 TSQLEnv.Commit
+00b39ae7 Estacionamento.exe connection               58 Tdm.cadastrarFuncionario
+00d9801e Estacionamento.exe FuncionarioController    58 TFuncionarioController.insertFuncionario
+00d98b99 Estacionamento.exe FuncionarioView          84 TfrmFuncionario.btnCadastrarClieClick
+00585b87 Estacionamento.exe Vcl.Controls           7596 TControl.Click
+0067758c Estacionamento.exe Vcl.Buttons            1964 TCustomSpeedButton.Click
+00a82b1a Estacionamento.exe SQLBtn                  285 TSQLBtn.Click
+00677576 Estacionamento.exe Vcl.Buttons            1957 TCustomSpeedButton.MouseUp
+00a83080 Estacionamento.exe SQLBtn                  402 TSQLBtn.MouseUp
+00585fb8 Estacionamento.exe Vcl.Controls           7724 TControl.DoMouseUp
+00586046 Estacionamento.exe Vcl.Controls           7737 TControl.WMLButtonUp
+0058562e Estacionamento.exe Vcl.Controls           7480 TControl.WndProc
+00585268 Estacionamento.exe Vcl.Controls           7258 TControl.Perform
+00589d84 Estacionamento.exe Vcl.Controls          10190 TWinControl.IsControlMouseMsg
+0058a3d5 Estacionamento.exe Vcl.Controls          10368 TWinControl.WndProc
+00589ad0 Estacionamento.exe Vcl.Controls          10113 TWinControl.MainWndProc
+00490ca8 Estacionamento.exe System.Classes        18175 StdWndProc
+772a5e7b USER32.dll                                     DispatchMessageW
+0066423b Estacionamento.exe Vcl.Forms             11028 TApplication.ProcessMessage
+0066427e Estacionamento.exe Vcl.Forms             11058 TApplication.HandleMessage
+0065f65a Estacionamento.exe Vcl.Forms              7739 TCustomForm.ShowModal
+0065f6e9 Estacionamento.exe Vcl.Forms              7747 TCustomForm.ShowModal
+0065f803 Estacionamento.exe Vcl.Forms              7771 TCustomForm.ShowModal
+00d99609 Estacionamento.exe main                     44 TfrmMain.btnCadFuncClick
+00585b87 Estacionamento.exe Vcl.Controls           7596 TControl.Click
+0067758c Estacionamento.exe Vcl.Buttons            1964 TCustomSpeedButton.Click
+00a82b1a Estacionamento.exe SQLBtn                  285 TSQLBtn.Click
+00a82b49 Estacionamento.exe SQLBtn                  287 TSQLBtn.Click
+00677576 Estacionamento.exe Vcl.Buttons            1957 TCustomSpeedButton.MouseUp
+00a83080 Estacionamento.exe SQLBtn                  402 TSQLBtn.MouseUp
+00585fb8 Estacionamento.exe Vcl.Controls           7724 TControl.DoMouseUp
+00586046 Estacionamento.exe Vcl.Controls           7737 TControl.WMLButtonUp
+0058562e Estacionamento.exe Vcl.Controls           7480 TControl.WndProc
+00585268 Estacionamento.exe Vcl.Controls           7258 TControl.Perform
+00589d84 Estacionamento.exe Vcl.Controls          10190 TWinControl.IsControlMouseMsg
+0058a3d5 Estacionamento.exe Vcl.Controls          10368 TWinControl.WndProc
+00589ad0 Estacionamento.exe Vcl.Controls          10113 TWinControl.MainWndProc
+00589aeb Estacionamento.exe Vcl.Controls          10116 TWinControl.MainWndProc
+00490ca8 Estacionamento.exe System.Classes        18175 StdWndProc
+772a5e7b USER32.dll                                     DispatchMessageW
+0066423b Estacionamento.exe Vcl.Forms             11028 TApplication.ProcessMessage
+0066427e Estacionamento.exe Vcl.Forms             11058 TApplication.HandleMessage
+006645b5 Estacionamento.exe Vcl.Forms             11196 TApplication.Run
+76ce00c7 KERNEL32.DLL                                   BaseThreadInitThunk
+
+Comando 20:  BEGIN; INSERT INTO funcionarios (nome, sobrenome, cpf, celular, cep, endereco, numero)
+ VALUES('Samuel', 'Lela', '56236915998', '41995327815', '80610285', 'Largo Francisco 
+Pirkiel', 'Samuel');  END; 
+Comando 19: INSERT INTO funcionarios (nome, sobrenome, cpf, celular, cep, endereco, numero) VALUES('Samuel',
+ 'Lela', '56236915998', '41995327815', '80610285', 'Largo Francisco Pirkiel', 'Samuel')
+
+Comando 18: select tabela,campo,tipo,titulo,mensagem,mascara,tamanho,casasdec,width,altera,empty,
+alinhamento,totalizacao,colbasetot,duplicity from dicionario where tabela='FORMATOSREL' 
+order by tabela,campo
+Comando 17: SELECT * FROM formatosrel WHERE 1=2
+Comando 16: select to_char(current_timestamp(3),'YYYY-MM-DD HH24:MI:SS.MS') as server_time, cast(EXTRACT(TIMEZONE 
+FROM current_timestamp)/3600 as integer) as offset
+Comando 15: select campo from dicionario where tabela='GERALOGCOMANDOS'
+Comando 14: SELECT Campo, Titulo FROM Dicionario WHERE Tabela='SYSTEM'
+Comando 13: select tabela,campo,tipo,titulo,mensagem,mascara,tamanho,casasdec,width,altera,empty,
+alinhamento,totalizacao,colbasetot,duplicity from dicionario where tabela='VERSAOSYSTEM' 
+order by tabela,campo
+Comando 12: 
+Comando 11: 
+Comando 10: 
+Comando 9: 
+Comando 8: 
+Comando 7: 
+Comando 6: 
+Comando 5: 
+Comando 4: 
+Comando 3: 
+Comando 2: 
+Comando 1: 
+
+Controle Execução 20: 
+Controle Execução 19: 
+Controle Execução 18: 
+Controle Execução 17: 
+Controle Execução 16: 
+Controle Execução 15: 
+Controle Execução 14: 
+Controle Execução 13: 
+Controle Execução 12: 
+Controle Execução 11: 
+Controle Execução 10: 
+Controle Execução 9: 
+Controle Execução 8: 
+Controle Execução 7: 
+Controle Execução 6: 
+Controle Execução 5: 
+Controle Execução 4: 
+Controle Execução 3: 
+Controle Execução 2: 
+Controle Execução 1: 
+
+Empresa:               / 
+Usuario:               / 
+Último Botão:         frmFuncionario->Cadastrar
+Último Edit:          OnEnter, frmFuncionario->Número:, Text: 
+Última Tecla:         97
+
+Sistema Operacional:  Windows NT / 2003 / XP / Versão: 10.0.19044
+Memória Total:        2047 MB, (Usada: 53,000 %)
+Endereço IP Local:    192.168.50.230
+Nome do Computador:   DESKTOP-CGKE8G9
+Banco de Dados:       POSTGRESQL
+Endereço Servidor:    localhost
+Base de Dados:        estacionamento
+Compilador:           VER340 (Delphi 10.4 Sydney)
+

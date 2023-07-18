@@ -1,0 +1,135 @@
+
+
+Erro 1:               Access violation at address 81BA0009. Read of address 81BA0009
+
+Data/Hora:            18/07/2023 - 09:30:33
+Arquivo Err:          C:\Users\Eduardo\Documents\Delphi\Estacionamento\Win32\Debug\Erro0027.ERR
+
+StackTrace:           
+(GetCrashStackTrace)
+81ba0009 ???                                        
+00a209e6 Estacionamento.exe SqlSis             2227 getStackTraceValue
+00a20c68 Estacionamento.exe SqlSis             2244 TSQLEnv.GetErrorMessage
+00a21195 Estacionamento.exe SqlSis             2273 TSQLEnv.GetErrorMessage
+00a21f93 Estacionamento.exe SqlSis             2361 GeraArqERR
+00a2209f Estacionamento.exe SqlSis             2365 GeraArqERR
+00a221f0 Estacionamento.exe SqlSis             2378 TSQLEnv.MensFim
+00a22531 Estacionamento.exe SqlSis             2434 TSQLEnv.MensFim
+00a2004b Estacionamento.exe SqlSis             2114 TSQLEnv.ExecShowException
+00a20080 Estacionamento.exe SqlSis             2119 TSQLEnv.ExecShowException
+0066471e Estacionamento.exe Vcl.Forms         11245 TApplication.HandleException
+00589b0d Estacionamento.exe Vcl.Controls      10119 TWinControl.MainWndProc
+774f4fb1 ntdll.dll                                  KiUserExceptionDispatcher
+0040a935 Estacionamento.exe System            19300 @AfterConstruction
+004302ed Estacionamento.exe System.SysUtils   23077 Exception.CreateFmt
+0040a971 Estacionamento.exe System            19334 @BeforeDestruction
+0040a94f Estacionamento.exe System            19306 @AfterConstruction
+774f4fb1 ntdll.dll                                  KiUserExceptionDispatcher
+0040a935 Estacionamento.exe System            19300 @AfterConstruction
+00b32ab3 Estacionamento.exe BaseList             48 TBaseList12.Create
+00b33575 Estacionamento.exe clienteController    36 TClienteController.insertClientes
+00b33faf Estacionamento.exe ClienteView          69 TfrmClienteView.btnCadastrarClieClick
+00585b87 Estacionamento.exe Vcl.Controls       7596 TControl.Click
+006775a8 Estacionamento.exe Vcl.Buttons        1964 TCustomSpeedButton.Click
+00a82b36 Estacionamento.exe SQLBtn              285 TSQLBtn.Click
+00677592 Estacionamento.exe Vcl.Buttons        1957 TCustomSpeedButton.MouseUp
+00a8309c Estacionamento.exe SQLBtn              402 TSQLBtn.MouseUp
+00585fb8 Estacionamento.exe Vcl.Controls       7724 TControl.DoMouseUp
+00586046 Estacionamento.exe Vcl.Controls       7737 TControl.WMLButtonUp
+0058562e Estacionamento.exe Vcl.Controls       7480 TControl.WndProc
+00585268 Estacionamento.exe Vcl.Controls       7258 TControl.Perform
+00589d84 Estacionamento.exe Vcl.Controls      10190 TWinControl.IsControlMouseMsg
+0058a3d5 Estacionamento.exe Vcl.Controls      10368 TWinControl.WndProc
+00589ad0 Estacionamento.exe Vcl.Controls      10113 TWinControl.MainWndProc
+00490ca8 Estacionamento.exe System.Classes    18175 StdWndProc
+772a5e7b USER32.dll                                 DispatchMessageW
+00664257 Estacionamento.exe Vcl.Forms         11028 TApplication.ProcessMessage
+0066429a Estacionamento.exe Vcl.Forms         11058 TApplication.HandleMessage
+0065f676 Estacionamento.exe Vcl.Forms          7739 TCustomForm.ShowModal
+0065f705 Estacionamento.exe Vcl.Forms          7747 TCustomForm.ShowModal
+0065f81f Estacionamento.exe Vcl.Forms          7771 TCustomForm.ShowModal
+00d8e84f Estacionamento.exe main                 39 TfrmMain.btnCadClienteClick
+00585b87 Estacionamento.exe Vcl.Controls       7596 TControl.Click
+006775a8 Estacionamento.exe Vcl.Buttons        1964 TCustomSpeedButton.Click
+00a82b36 Estacionamento.exe SQLBtn              285 TSQLBtn.Click
+00a82b65 Estacionamento.exe SQLBtn              287 TSQLBtn.Click
+00677592 Estacionamento.exe Vcl.Buttons        1957 TCustomSpeedButton.MouseUp
+00a8309c Estacionamento.exe SQLBtn              402 TSQLBtn.MouseUp
+00585fb8 Estacionamento.exe Vcl.Controls       7724 TControl.DoMouseUp
+00586046 Estacionamento.exe Vcl.Controls       7737 TControl.WMLButtonUp
+0058562e Estacionamento.exe Vcl.Controls       7480 TControl.WndProc
+00585268 Estacionamento.exe Vcl.Controls       7258 TControl.Perform
+00589d84 Estacionamento.exe Vcl.Controls      10190 TWinControl.IsControlMouseMsg
+0058a3d5 Estacionamento.exe Vcl.Controls      10368 TWinControl.WndProc
+00589ad0 Estacionamento.exe Vcl.Controls      10113 TWinControl.MainWndProc
+00589aeb Estacionamento.exe Vcl.Controls      10116 TWinControl.MainWndProc
+00490ca8 Estacionamento.exe System.Classes    18175 StdWndProc
+772a5e7b USER32.dll                                 DispatchMessageW
+00664257 Estacionamento.exe Vcl.Forms         11028 TApplication.ProcessMessage
+0066429a Estacionamento.exe Vcl.Forms         11058 TApplication.HandleMessage
+006645d1 Estacionamento.exe Vcl.Forms         11196 TApplication.Run
+76ce00c7 KERNEL32.DLL                               BaseThreadInitThunk
+
+Comando 20: select tabela,campo,tipo,titulo,mensagem,mascara,tamanho,casasdec,width,altera,empty,
+alinhamento,totalizacao,colbasetot,duplicity from dicionario where tabela='FORMATOSREL' 
+order by tabela,campo
+Comando 19: SELECT * FROM formatosrel WHERE 1=2
+Comando 18: select to_char(current_timestamp(3),'YYYY-MM-DD HH24:MI:SS.MS') as server_time, cast(EXTRACT(TIMEZONE 
+FROM current_timestamp)/3600 as integer) as offset
+Comando 17: select campo from dicionario where tabela='GERALOGCOMANDOS'
+Comando 16: SELECT Campo, Titulo FROM Dicionario WHERE Tabela='SYSTEM'
+Comando 15: select tabela,campo,tipo,titulo,mensagem,mascara,tamanho,casasdec,width,altera,empty,
+alinhamento,totalizacao,colbasetot,duplicity from dicionario where tabela='VERSAOSYSTEM' 
+order by tabela,campo
+Comando 14: 
+Comando 13: 
+Comando 12: 
+Comando 11: 
+Comando 10: 
+Comando 9: 
+Comando 8: 
+Comando 7: 
+Comando 6: 
+Comando 5: 
+Comando 4: 
+Comando 3: 
+Comando 2: 
+Comando 1: 
+
+Controle Execução 20: 
+Controle Execução 19: 
+Controle Execução 18: 
+Controle Execução 17: 
+Controle Execução 16: 
+Controle Execução 15: 
+Controle Execução 14: 
+Controle Execução 13: 
+Controle Execução 12: 
+Controle Execução 11: 
+Controle Execução 10: 
+Controle Execução 9: 
+Controle Execução 8: 
+Controle Execução 7: 
+Controle Execução 6: 
+Controle Execução 5: 
+Controle Execução 4: 
+Controle Execução 3: 
+Controle Execução 2: 
+Controle Execução 1: 
+
+Empresa:               / 
+Usuario:               / 
+Último Botão:         frmClienteView->Cadastrar
+Último Edit:          Next, frmClienteView->Ano:, Text: a
+Última Tecla:         13
+Último Aviso:         Nome: Não Permitido Conteúdo Vazio
+
+Sistema Operacional:  Windows NT / 2003 / XP / Versão: 10.0.19044
+Memória Total:        2047 MB, (Usada: 48,000 %)
+Endereço IP Local:    192.168.50.230
+Nome do Computador:   DESKTOP-CGKE8G9
+Banco de Dados:       POSTGRESQL
+Endereço Servidor:    localhost
+Base de Dados:        estacionamento
+Compilador:           VER340 (Delphi 10.4 Sydney)
+

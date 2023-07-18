@@ -1,0 +1,11 @@
+unit FuncionarioModel;
+
+interface
+type
+  TFuncionario = class
+    private
+    public
+  end;
+implementation
+
+end.

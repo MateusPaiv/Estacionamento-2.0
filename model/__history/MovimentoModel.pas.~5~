@@ -1,0 +1,43 @@
+unit MovimentoModel;
+
+interface
+type
+  TMovimento = class
+    private
+    FentradaData: TDate;
+    FsaidaData: TDate;
+    FentradaHora: TTime;
+    FsaidaHora: TTime;
+    Fvalor: currency;
+    FidFuncCadastrouMovimento: integer;
+    FidFuncManobristaMovimento: integer;
+    FidVeic: integer;
+    public
+      constructor Create(entradaData:TDate;entradaHora:TTime)overload;
+      destructor Destroy;override;
+      property entradaData: TDate read FentradaData write FentradaData;
+      property saidaData: TDate read FsaidaData write FsaidaData;
+      property entradaHora: TTime read FentradaHora write FentradaHora;
+      property saidaHora: TTime read FsaidaHora write FsaidaHora;
+      property valor: currency read Fvalor write Fvalor;
+      property idFuncCadastrouMovimento: integer read FidFuncCadastrouMovimento write FidFuncCadastrouMovimento;
+      property idFuncManobristaMovimento: integer read FidFuncManobristaMovimento write FidFuncManobristaMovimento;
+      property idVeic: integer read FidVeic write FidVeic;
+  end;
+implementation
+
+{ TMovimento }
+
+constructor TMovimento.Create(entradaData: TDate; entradaHora: TTime);
+begin
+  FentradaData:=entradaData;
+  FentradaHora:=entradaHora;
+end;
+
+destructor TMovimento.Destroy;
+begin
+  inherited;
+
+end;
+
+end.

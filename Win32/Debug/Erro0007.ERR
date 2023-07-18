@@ -1,0 +1,131 @@
+
+
+Erro 1:               column "id_func" is in a primary key; SQL executada: [Alter Table funcionarios Alter Column id_func Drop Not Null]
+
+Versao:               1
+Data/Hora:            17/07/2023 - 09:15:56
+Arquivo Err:          C:\Users\Eduardo\Documents\Delphi\Estacionamento\Win32\Debug\Erro0007.ERR
+
+StackTrace:           
+(GetCrashStackTrace)
+0076f5e5 Estacionamento.exe Data.DBXCommon   11080 TDBXContext.Error
+0095561a Estacionamento.exe Data.DBXDynalink   825 TDBXMethodTable.RaiseError
+00955fd3 Estacionamento.exe Data.DBXDynalink  1113 TDBXDynalinkCommand.CheckResult
+009560ff Estacionamento.exe Data.DBXDynalink  1157 TDBXDynalinkCommand.DerivedExecuteQuery
+0076bca9 Estacionamento.exe Data.DBXCommon    8963 TDBXCommand.ExecuteQuery
+0076c1ff Estacionamento.exe Data.DBXCommon    9150 TDBXMorphicCommand.ExecuteQuery
+007fdc86 Estacionamento.exe Data.SqlExpr      2747 TSQLConnection.ExecuteDirect
+00a3bfea Estacionamento.exe SqlSis           11236 TSQLEnv.ExecuteSql
+00a22ce2 Estacionamento.exe SqlSis            6955 EnviaComandosDDL
+00a297c9 Estacionamento.exe SqlSis            7586 SetFieldNotNull
+00a2ac04 Estacionamento.exe SqlSis            7722 CheckTables
+00a33202 Estacionamento.exe SqlSis            8972 TSQLInstall.InstallSystem
+00a68744 Estacionamento.exe connection          62 Tdm.initConfigs
+00a686a7 Estacionamento.exe connection          49 Tdm.DataModuleCreate
+0048d89f Estacionamento.exe System.Classes   17997 TDataModule.DoCreate
+0048d748 Estacionamento.exe System.Classes   17961 TDataModule.AfterConstruction
+0040a8c9 Estacionamento.exe System           19300 @AfterConstruction
+0048d728 Estacionamento.exe System.Classes   17957 TDataModule.Create
+006599ea Estacionamento.exe Vcl.Forms        11147 TApplication.CreateForm
+76ce00c7 KERNEL32.DLL                              BaseThreadInitThunk
+
+Comando 20: Alter Table funcionarios Alter Column id_func Drop Not Null
+Comando 19: Alter Table funcionarios Alter Column id_func Drop Not Null
+Comando 18: Alter Table funcionarios Alter Column id_func Drop Default
+Comando 17: Alter Table funcionarios Alter Column id_func Drop Default
+Comando 16: SELECT * FROM DICIONARIO WHERE TABELA = 'FUNCIONARIOS'
+Comando 15: SELECT column_name, is_nullable, datetime_precision, data_type FROM information_schema.columns 
+WHERE upper(table_schema)=upper('public') AND upper(table_name)=upper('funcionarios')
+
+Comando 14: SELECT * FROM funcionarios WHERE 1=2
+Comando 13: Analyse pessoas
+Comando 12: Analyse pessoas
+Comando 11:  BEGIN; DELETE FROM Dicionario WHERE Tabela='PESSOAS' And Campo='NOME'; INSERT INTO 
+Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, CASASDEC, WIDTH,
+ ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, VERSAO) VALUES('PESSOAS',
+ 'NOME', 'C', 'Nome', 'Nome do funcionário', '', 50, 0, 150, 'S', 'S', '', '', '',
+ '1', '1'); DELETE FROM Dicionario WHERE Tabela='PESSOAS' And Campo='SOBRENOME'; 
+INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('PESSOAS', 'SOBRENOME', 'C', 'Sobrenome', 'Sobrenome do funcionário',
+ '', 50, 0, 150, 'S', 'S', '', '', '', '1', '1'); DELETE FROM Dicionario WHERE Tabela='PESSOAS' 
+And Campo='DATA_NASCIMENTO'; INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO,
+ MENSAGEM, MASCARA, TAMANHO, CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO,
+ COLBASETOT, DUPLICITY, VERSAO) VALUES('PESSOAS', 'DATA_NASCIMENTO', 'D', 'Nacimento',
+ 'Data de nascimento', '', 50, 0, 150, 'S', 'S', '', '', '', '1', '1'); DELETE FROM 
+Dicionario WHERE Tabela='PESSOAS' And Campo='CPF_CNPJ'; INSERT INTO Dicionario (TABELA,
+ CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, CASASDEC, WIDTH, ALTERA, EMPTY,
+ ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, VERSAO) VALUES('PESSOAS', 'CPF_CNPJ',
+ 'C', 'Tipo', 'Pessoa Física/Jurídica', '', 14, 0, 20, 'S', 'S', '1', '', '', '0',
+ '1'); DELETE FROM Dicionario WHERE Tabela='PESSOAS' And Campo='TIPO_PESSOA'; INSERT 
+INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, CASASDEC,
+ WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, VERSAO) VALUES('PESSOAS',
+ 'TIPO_PESSOA', 'C', 'Função', 'Função do funcionário', '', 1, 0, 20, 'S', 'S', '1',
+ '', '', '0', '1'); DELETE FROM Dicionario WHERE Tabela='PESSOAS' And Campo='DATA_CADASTRO';
+ INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO,
+ CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY,
+ VERSAO) VALUES('PESSOAS', 'DATA_CADASTRO', 'D', 'Hora do cadastro', 'Hora que o 
+usuário foi cadastrado', '', 50, 0, 150, 'S', 'S', '', '', '', '1', '1');  END; 
+Comando 10: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('PESSOAS', 'DATA_CADASTRO', 'D', 'Hora do cadastro', 'Hora que o usuário 
+foi cadastrado', '', 50, 0, 150, 'S', 'S', '', '', '', '1', '1')
+Comando 9: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('PESSOAS', 'TIPO_PESSOA', 'C', 'Função', 'Função do funcionário', 
+'', 1, 0, 20, 'S', 'S', '1', '', '', '0', '1')
+Comando 8: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('PESSOAS', 'CPF_CNPJ', 'C', 'Tipo', 'Pessoa Física/Jurídica', '', 
+14, 0, 20, 'S', 'S', '1', '', '', '0', '1')
+Comando 7: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('PESSOAS', 'DATA_NASCIMENTO', 'D', 'Nacimento', 'Data de nascimento',
+ '', 50, 0, 150, 'S', 'S', '', '', '', '1', '1')
+Comando 6: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('PESSOAS', 'SOBRENOME', 'C', 'Sobrenome', 'Sobrenome do funcionário',
+ '', 50, 0, 150, 'S', 'S', '', '', '', '1', '1')
+Comando 5: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('PESSOAS', 'NOME', 'C', 'Nome', 'Nome do funcionário', '', 50, 0, 
+150, 'S', 'S', '', '', '', '1', '1')
+Comando 4: Alter Table pessoas Add Column data_cadastro DATE 
+Comando 3: Alter Table pessoas Add Column data_cadastro DATE 
+Comando 2: Alter Table pessoas Add Column tipo_pessoa VARCHAR(1) 
+Comando 1: Alter Table pessoas Add Column tipo_pessoa VARCHAR(1) 
+
+Controle Execução 20: 
+Controle Execução 19: 
+Controle Execução 18: 
+Controle Execução 17: 
+Controle Execução 16: 
+Controle Execução 15: 
+Controle Execução 14: 
+Controle Execução 13: 
+Controle Execução 12: 
+Controle Execução 11: 
+Controle Execução 10: 
+Controle Execução 9: 
+Controle Execução 8: 
+Controle Execução 7: 
+Controle Execução 6: 
+Controle Execução 5: 
+Controle Execução 4: 
+Controle Execução 3: 
+Controle Execução 2: 
+Controle Execução 1: 
+
+Empresa:               / 
+Usuario:               / 
+Última Tecla:         0
+
+Sistema Operacional:  Windows NT / 2003 / XP / Versão: 10.0.19044
+Memória Total:        2047 MB, (Usada: 54,000 %)
+Endereço IP Local:    192.168.50.230
+Nome do Computador:   DESKTOP-CGKE8G9
+Banco de Dados:       POSTGRESQL
+Endereço Servidor:    localhost
+Base de Dados:        estacionamento
+Compilador:           VER340 (Delphi 10.4 Sydney)
+

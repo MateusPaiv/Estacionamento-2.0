@@ -1,0 +1,110 @@
+
+
+Erro 1:               Access violation at address 0064ED97 in module 'Estacionamento.exe'. Read of address 00000010
+
+Versao:               1
+Data/Hora:            17/07/2023 - 09:40:28
+Arquivo Err:          C:\Users\Eduardo\Documents\Delphi\Estacionamento\Win32\Debug\Erro0009.ERR
+
+StackTrace:           
+(GetCrashStackTrace)
+0064ed97 Estacionamento.exe Vcl.Forms       4338 TCustomForm.IsFormSizeStored
+0064ed7d Estacionamento.exe Vcl.Forms       4333 TCustomForm.IsClientSizeStored
+00651774 Estacionamento.exe Vcl.Forms       5825 TCustomForm.CreateParams
+0057ac36 Estacionamento.exe Vcl.Controls    7480 TControl.WndProc
+0057e549 Estacionamento.exe Vcl.Controls    9708 TWinControl.CreateWnd
+0064d39d Estacionamento.exe Vcl.Forms       3280 TScrollingWinControl.CreateWnd
+006517ee Estacionamento.exe Vcl.Forms       5889 TCustomForm.CreateWnd
+0057eb1a Estacionamento.exe Vcl.Controls    9901 TWinControl.CreateHandle
+00582f80 Estacionamento.exe Vcl.Controls   12541 TWinControl.HandleNeeded
+00582f8d Estacionamento.exe Vcl.Controls   12547 TWinControl.GetHandle
+00654c98 Estacionamento.exe Vcl.Forms       7744 TCustomForm.ShowModal
+00a67ca7 Estacionamento.exe main              39 TfrmMain.btnCadClienteClick
+0057b18f Estacionamento.exe Vcl.Controls    7596 TControl.Click
+0066cb74 Estacionamento.exe Vcl.Buttons     1964 TCustomSpeedButton.Click
+00a66c7a Estacionamento.exe SQLBtn           285 TSQLBtn.Click
+0066cb5e Estacionamento.exe Vcl.Buttons     1957 TCustomSpeedButton.MouseUp
+00a671e0 Estacionamento.exe SQLBtn           402 TSQLBtn.MouseUp
+0057b5c0 Estacionamento.exe Vcl.Controls    7724 TControl.DoMouseUp
+0057b64e Estacionamento.exe Vcl.Controls    7737 TControl.WMLButtonUp
+0057ac36 Estacionamento.exe Vcl.Controls    7480 TControl.WndProc
+0057a870 Estacionamento.exe Vcl.Controls    7258 TControl.Perform
+0057f38c Estacionamento.exe Vcl.Controls   10190 TWinControl.IsControlMouseMsg
+0057f9dd Estacionamento.exe Vcl.Controls   10368 TWinControl.WndProc
+0057f0d8 Estacionamento.exe Vcl.Controls   10113 TWinControl.MainWndProc
+0048dc74 Estacionamento.exe System.Classes 18175 StdWndProc
+772a5e7b USER32.dll                              DispatchMessageW
+00659823 Estacionamento.exe Vcl.Forms      11028 TApplication.ProcessMessage
+00659866 Estacionamento.exe Vcl.Forms      11058 TApplication.HandleMessage
+00659b9d Estacionamento.exe Vcl.Forms      11196 TApplication.Run
+76ce00c7 KERNEL32.DLL                            BaseThreadInitThunk
+
+Comando 20: -- Final dos Comandos DDL
+Comando 19:  BEGIN; INSERT INTO DICIONARIO (TABELA, CAMPO) VALUES('VERSAOSYSTEM', '1');  END;
+ 
+Comando 18: INSERT INTO DICIONARIO (TABELA, CAMPO) VALUES('VERSAOSYSTEM', '1')
+Comando 17: DELETE FROM DICIONARIO WHERE TABELA='VERSAOSYSTEM'
+Comando 16: Analyse formatosrel
+Comando 15: Analyse formatosrel
+Comando 14: CREATE UNIQUE INDEX formatosrel_idx ON formatosrel(Loja,Usuario,GrUsuario,NomeRel,
+NomeFormato)
+Comando 13: CREATE UNIQUE INDEX formatosrel_idx ON formatosrel(Loja,Usuario,GrUsuario,NomeRel,
+NomeFormato)
+Comando 12: DROP INDEX formatosrel_idx
+Comando 11: DROP INDEX formatosrel_idx
+Comando 10: Analyse dicionario
+Comando 9: Analyse dicionario
+Comando 8: CREATE UNIQUE INDEX dicionario_idx ON dicionario(Tabela,Campo)
+Comando 7: CREATE UNIQUE INDEX dicionario_idx ON dicionario(Tabela,Campo)
+Comando 6: DROP INDEX dicionario_idx
+Comando 5: DROP INDEX dicionario_idx
+Comando 4:  BEGIN; DELETE FROM Dicionario WHERE Tabela='CLIENTES' And Campo='ID_CLIE_PESS'; 
+INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('CLIENTES', 'ID_CLIE_PESS', 'N', 'Código', 'Código da pessoa vinculada',
+ '#######0', 8, 0, 80, 'N', 'S', '3', '', '', '2', '1');  END; 
+Comando 3: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('CLIENTES', 'ID_CLIE_PESS', 'N', 'Código', 'Código da pessoa vinculada',
+ '#######0', 8, 0, 80, 'N', 'S', '3', '', '', '2', '1')
+Comando 2: SELECT * FROM DICIONARIO WHERE TABELA = 'CLIENTES'
+Comando 1: SELECT column_name, is_nullable, datetime_precision, data_type FROM information_schema.columns 
+WHERE upper(table_schema)=upper('public') AND upper(table_name)=upper('clientes')
+
+
+Controle Execução 20: Verificando Indices, Tabela: FormatosRel
+Controle Execução 19: Verificando Indices, Tabela: Dicionario
+Controle Execução 18: 
+Controle Execução 17: 
+Controle Execução 16: 
+Controle Execução 15: 
+Controle Execução 14: 
+Controle Execução 13: 
+Controle Execução 12: 
+Controle Execução 11: 
+Controle Execução 10: 
+Controle Execução 9: 
+Controle Execução 8: 
+Controle Execução 7: 
+Controle Execução 6: 
+Controle Execução 5: 
+Controle Execução 4: 
+Controle Execução 3: 
+Controle Execução 2: 
+Controle Execução 1: 
+
+Empresa:               / 
+Usuario:               / 
+Último Botão:         frmMain->Cadastrar Cliente
+Última Tecla:         13
+Último Aviso:         Instalação Concluída
+
+Sistema Operacional:  Windows NT / 2003 / XP / Versão: 10.0.19044
+Memória Total:        2047 MB, (Usada: 50,000 %)
+Endereço IP Local:    192.168.50.230
+Nome do Computador:   DESKTOP-CGKE8G9
+Banco de Dados:       POSTGRESQL
+Endereço Servidor:    localhost
+Base de Dados:        estacionamento
+Compilador:           VER340 (Delphi 10.4 Sydney)
+

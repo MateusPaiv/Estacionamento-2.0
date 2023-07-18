@@ -1,0 +1,116 @@
+
+
+Erro 1:               Argument out of range
+
+Data/Hora:            17/07/2023 - 17:18:21
+Arquivo Err:          C:\Users\Eduardo\Documents\Delphi\Estacionamento\Win32\Debug\Erro0025.ERR
+
+StackTrace:           
+(GetCrashStackTrace)
+0047a4da Estacionamento.exe System.Classes   6319 TCollection.GetItem
+009fa862 Estacionamento.exe SqlDtg           2164 TSqlDtGridColumns.GetColumn
+009f7cdb Estacionamento.exe SqlDtg           1205 TSqlDtGrid.SetCells
+00d8d4a0 Estacionamento.exe FuncionarioView    99 TfrmFuncionario.carregarGrid
+00d8d32f Estacionamento.exe FuncionarioView    84 TfrmFuncionario.btnCarregaGridClick
+00585b87 Estacionamento.exe Vcl.Controls     7596 TControl.Click
+0067758c Estacionamento.exe Vcl.Buttons      1964 TCustomSpeedButton.Click
+00a82b1a Estacionamento.exe SQLBtn            285 TSQLBtn.Click
+00677576 Estacionamento.exe Vcl.Buttons      1957 TCustomSpeedButton.MouseUp
+00a83080 Estacionamento.exe SQLBtn            402 TSQLBtn.MouseUp
+00585fb8 Estacionamento.exe Vcl.Controls     7724 TControl.DoMouseUp
+00586046 Estacionamento.exe Vcl.Controls     7737 TControl.WMLButtonUp
+0058562e Estacionamento.exe Vcl.Controls     7480 TControl.WndProc
+00585268 Estacionamento.exe Vcl.Controls     7258 TControl.Perform
+00589d84 Estacionamento.exe Vcl.Controls    10190 TWinControl.IsControlMouseMsg
+0058a3d5 Estacionamento.exe Vcl.Controls    10368 TWinControl.WndProc
+00589ad0 Estacionamento.exe Vcl.Controls    10113 TWinControl.MainWndProc
+00490ca8 Estacionamento.exe System.Classes  18175 StdWndProc
+772a5e7b USER32.dll                               DispatchMessageW
+0066423b Estacionamento.exe Vcl.Forms       11028 TApplication.ProcessMessage
+0066427e Estacionamento.exe Vcl.Forms       11058 TApplication.HandleMessage
+0065f65a Estacionamento.exe Vcl.Forms        7739 TCustomForm.ShowModal
+0065f6e9 Estacionamento.exe Vcl.Forms        7747 TCustomForm.ShowModal
+0065f803 Estacionamento.exe Vcl.Forms        7771 TCustomForm.ShowModal
+00d8dd39 Estacionamento.exe main               44 TfrmMain.btnCadFuncClick
+00585b87 Estacionamento.exe Vcl.Controls     7596 TControl.Click
+0067758c Estacionamento.exe Vcl.Buttons      1964 TCustomSpeedButton.Click
+00a82b1a Estacionamento.exe SQLBtn            285 TSQLBtn.Click
+00a82b49 Estacionamento.exe SQLBtn            287 TSQLBtn.Click
+00677576 Estacionamento.exe Vcl.Buttons      1957 TCustomSpeedButton.MouseUp
+00a83080 Estacionamento.exe SQLBtn            402 TSQLBtn.MouseUp
+00585fb8 Estacionamento.exe Vcl.Controls     7724 TControl.DoMouseUp
+00586046 Estacionamento.exe Vcl.Controls     7737 TControl.WMLButtonUp
+0058562e Estacionamento.exe Vcl.Controls     7480 TControl.WndProc
+00585268 Estacionamento.exe Vcl.Controls     7258 TControl.Perform
+00589d84 Estacionamento.exe Vcl.Controls    10190 TWinControl.IsControlMouseMsg
+0058a3d5 Estacionamento.exe Vcl.Controls    10368 TWinControl.WndProc
+00589ad0 Estacionamento.exe Vcl.Controls    10113 TWinControl.MainWndProc
+00589aeb Estacionamento.exe Vcl.Controls    10116 TWinControl.MainWndProc
+00490ca8 Estacionamento.exe System.Classes  18175 StdWndProc
+772a5e7b USER32.dll                               DispatchMessageW
+0066423b Estacionamento.exe Vcl.Forms       11028 TApplication.ProcessMessage
+0066427e Estacionamento.exe Vcl.Forms       11058 TApplication.HandleMessage
+006645b5 Estacionamento.exe Vcl.Forms       11196 TApplication.Run
+76ce00c7 KERNEL32.DLL                             BaseThreadInitThunk
+
+Comando 20: select * from funcionarios
+Comando 19: select tabela,campo,tipo,titulo,mensagem,mascara,tamanho,casasdec,width,altera,empty,
+alinhamento,totalizacao,colbasetot,duplicity from dicionario where tabela='FORMATOSREL' 
+order by tabela,campo
+Comando 18: SELECT * FROM formatosrel WHERE 1=2
+Comando 17: select to_char(current_timestamp(3),'YYYY-MM-DD HH24:MI:SS.MS') as server_time, cast(EXTRACT(TIMEZONE 
+FROM current_timestamp)/3600 as integer) as offset
+Comando 16: select campo from dicionario where tabela='GERALOGCOMANDOS'
+Comando 15: SELECT Campo, Titulo FROM Dicionario WHERE Tabela='SYSTEM'
+Comando 14: select tabela,campo,tipo,titulo,mensagem,mascara,tamanho,casasdec,width,altera,empty,
+alinhamento,totalizacao,colbasetot,duplicity from dicionario where tabela='VERSAOSYSTEM' 
+order by tabela,campo
+Comando 13: 
+Comando 12: 
+Comando 11: 
+Comando 10: 
+Comando 9: 
+Comando 8: 
+Comando 7: 
+Comando 6: 
+Comando 5: 
+Comando 4: 
+Comando 3: 
+Comando 2: 
+Comando 1: 
+
+Controle Execução 20: 
+Controle Execução 19: 
+Controle Execução 18: 
+Controle Execução 17: 
+Controle Execução 16: 
+Controle Execução 15: 
+Controle Execução 14: 
+Controle Execução 13: 
+Controle Execução 12: 
+Controle Execução 11: 
+Controle Execução 10: 
+Controle Execução 9: 
+Controle Execução 8: 
+Controle Execução 7: 
+Controle Execução 6: 
+Controle Execução 5: 
+Controle Execução 4: 
+Controle Execução 3: 
+Controle Execução 2: 
+Controle Execução 1: 
+
+Empresa:               / 
+Usuario:               / 
+Último Botão:         frmFuncionario->Atualizar Grid
+Última Tecla:         0
+
+Sistema Operacional:  Windows NT / 2003 / XP / Versão: 10.0.19044
+Memória Total:        2047 MB, (Usada: 44,000 %)
+Endereço IP Local:    192.168.50.230
+Nome do Computador:   DESKTOP-CGKE8G9
+Banco de Dados:       POSTGRESQL
+Endereço Servidor:    localhost
+Base de Dados:        estacionamento
+Compilador:           VER340 (Delphi 10.4 Sydney)
+

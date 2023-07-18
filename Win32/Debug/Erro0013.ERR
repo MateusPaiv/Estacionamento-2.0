@@ -1,0 +1,136 @@
+
+
+Erro 1:               column "data_nascimento" is of type date but expression is of type integer
+
+Versao:               1
+Data/Hora:            17/07/2023 - 10:25:46
+Arquivo Err:          C:\Users\Eduardo\Documents\Delphi\Estacionamento\Win32\Debug\Erro0013.ERR
+
+StackTrace:           
+(GetCrashStackTrace)
+0076f605 Estacionamento.exe Data.DBXCommon    11080 TDBXContext.Error
+0095563a Estacionamento.exe Data.DBXDynalink    825 TDBXMethodTable.RaiseError
+00955ff3 Estacionamento.exe Data.DBXDynalink   1113 TDBXDynalinkCommand.CheckResult
+0095611f Estacionamento.exe Data.DBXDynalink   1157 TDBXDynalinkCommand.DerivedExecuteQuery
+0076bcc9 Estacionamento.exe Data.DBXCommon     8963 TDBXCommand.ExecuteQuery
+0076c21f Estacionamento.exe Data.DBXCommon     9150 TDBXMorphicCommand.ExecuteQuery
+007fdca6 Estacionamento.exe Data.SqlExpr       2747 TSQLConnection.ExecuteDirect
+00a0ad70 Estacionamento.exe SqlSis             3085 GravaSQL
+00a0b586 Estacionamento.exe SqlSis             3169 TSQLEnv.SendToServer
+00a0b96c Estacionamento.exe SqlSis             3206 TSQLEnv.Commit
+00a681ca Estacionamento.exe connection           86 Tdm.insertClientes
+00a68429 Estacionamento.exe clienteController    37 TClienteController.insertClientes
+00a689cc Estacionamento.exe cadCliente           40 TfrmCadCliente.btnCadClick
+0057b18f Estacionamento.exe Vcl.Controls       7596 TControl.Click
+0066cb94 Estacionamento.exe Vcl.Buttons        1964 TCustomSpeedButton.Click
+00a66c9a Estacionamento.exe SQLBtn              285 TSQLBtn.Click
+0066cb7e Estacionamento.exe Vcl.Buttons        1957 TCustomSpeedButton.MouseUp
+00a67200 Estacionamento.exe SQLBtn              402 TSQLBtn.MouseUp
+0057b5c0 Estacionamento.exe Vcl.Controls       7724 TControl.DoMouseUp
+0057b64e Estacionamento.exe Vcl.Controls       7737 TControl.WMLButtonUp
+0057ac36 Estacionamento.exe Vcl.Controls       7480 TControl.WndProc
+0057a870 Estacionamento.exe Vcl.Controls       7258 TControl.Perform
+0057f38c Estacionamento.exe Vcl.Controls      10190 TWinControl.IsControlMouseMsg
+0057f9dd Estacionamento.exe Vcl.Controls      10368 TWinControl.WndProc
+0057f0d8 Estacionamento.exe Vcl.Controls      10113 TWinControl.MainWndProc
+0048dc74 Estacionamento.exe System.Classes    18175 StdWndProc
+772a5e7b USER32.dll                                 DispatchMessageW
+00659843 Estacionamento.exe Vcl.Forms         11028 TApplication.ProcessMessage
+00659886 Estacionamento.exe Vcl.Forms         11058 TApplication.HandleMessage
+00654c62 Estacionamento.exe Vcl.Forms          7739 TCustomForm.ShowModal
+00654cf1 Estacionamento.exe Vcl.Forms          7747 TCustomForm.ShowModal
+00654e0b Estacionamento.exe Vcl.Forms          7771 TCustomForm.ShowModal
+00a68e33 Estacionamento.exe main                 39 TfrmMain.btnCadClienteClick
+0057b18f Estacionamento.exe Vcl.Controls       7596 TControl.Click
+0066cb94 Estacionamento.exe Vcl.Buttons        1964 TCustomSpeedButton.Click
+00a66c9a Estacionamento.exe SQLBtn              285 TSQLBtn.Click
+00a66cc9 Estacionamento.exe SQLBtn              287 TSQLBtn.Click
+0066cb7e Estacionamento.exe Vcl.Buttons        1957 TCustomSpeedButton.MouseUp
+00a67200 Estacionamento.exe SQLBtn              402 TSQLBtn.MouseUp
+0057b5c0 Estacionamento.exe Vcl.Controls       7724 TControl.DoMouseUp
+0057b64e Estacionamento.exe Vcl.Controls       7737 TControl.WMLButtonUp
+0057ac36 Estacionamento.exe Vcl.Controls       7480 TControl.WndProc
+0057a870 Estacionamento.exe Vcl.Controls       7258 TControl.Perform
+0057f38c Estacionamento.exe Vcl.Controls      10190 TWinControl.IsControlMouseMsg
+0057f9dd Estacionamento.exe Vcl.Controls      10368 TWinControl.WndProc
+0057f0d8 Estacionamento.exe Vcl.Controls      10113 TWinControl.MainWndProc
+0057f0f3 Estacionamento.exe Vcl.Controls      10116 TWinControl.MainWndProc
+0048dc74 Estacionamento.exe System.Classes    18175 StdWndProc
+772a5e7b USER32.dll                                 DispatchMessageW
+00659843 Estacionamento.exe Vcl.Forms         11028 TApplication.ProcessMessage
+00659886 Estacionamento.exe Vcl.Forms         11058 TApplication.HandleMessage
+00659bbd Estacionamento.exe Vcl.Forms         11196 TApplication.Run
+76ce00c7 KERNEL32.DLL                               BaseThreadInitThunk
+
+Comando 20:  BEGIN; INSERT INTO pessoas (nome, sobrenome, cpf_cnpj, tipo_pessoa, data_nascimento,
+ data_cadastro) VALUES('Mateus', 'Paiva', '14076115937', 'F', 38695, CAST('2023-07-17' 
+AS DATE));  END; 
+Comando 19: INSERT INTO pessoas (nome, sobrenome, cpf_cnpj, tipo_pessoa, data_nascimento, data_cadastro)
+ VALUES('Mateus', 'Paiva', '14076115937', 'F', 38695, CAST('2023-07-17' AS DATE))
+
+Comando 18: -- Final dos Comandos DDL
+Comando 17:  BEGIN; INSERT INTO DICIONARIO (TABELA, CAMPO) VALUES('VERSAOSYSTEM', '1');  END;
+ 
+Comando 16: INSERT INTO DICIONARIO (TABELA, CAMPO) VALUES('VERSAOSYSTEM', '1')
+Comando 15: DELETE FROM DICIONARIO WHERE TABELA='VERSAOSYSTEM'
+Comando 14: Analyse formatosrel
+Comando 13: Analyse formatosrel
+Comando 12: CREATE UNIQUE INDEX formatosrel_idx ON formatosrel(Loja,Usuario,GrUsuario,NomeRel,
+NomeFormato)
+Comando 11: CREATE UNIQUE INDEX formatosrel_idx ON formatosrel(Loja,Usuario,GrUsuario,NomeRel,
+NomeFormato)
+Comando 10: DROP INDEX formatosrel_idx
+Comando 9: DROP INDEX formatosrel_idx
+Comando 8: Analyse dicionario
+Comando 7: Analyse dicionario
+Comando 6: CREATE UNIQUE INDEX dicionario_idx ON dicionario(Tabela,Campo)
+Comando 5: CREATE UNIQUE INDEX dicionario_idx ON dicionario(Tabela,Campo)
+Comando 4: DROP INDEX dicionario_idx
+Comando 3: DROP INDEX dicionario_idx
+Comando 2:  BEGIN; DELETE FROM Dicionario WHERE Tabela='CLIENTES' And Campo='ID_CLIE_PESS'; 
+INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('CLIENTES', 'ID_CLIE_PESS', 'N', 'Código', 'Código da pessoa vinculada',
+ '#######0', 8, 0, 80, 'N', 'S', '3', '', '', '2', '1');  END; 
+Comando 1: INSERT INTO Dicionario (TABELA, CAMPO, TIPO, TITULO, MENSAGEM, MASCARA, TAMANHO, 
+CASASDEC, WIDTH, ALTERA, EMPTY, ALINHAMENTO, TOTALIZACAO, COLBASETOT, DUPLICITY, 
+VERSAO) VALUES('CLIENTES', 'ID_CLIE_PESS', 'N', 'Código', 'Código da pessoa vinculada',
+ '#######0', 8, 0, 80, 'N', 'S', '3', '', '', '2', '1')
+
+Controle Execução 20: Verificando Indices, Tabela: FormatosRel
+Controle Execução 19: Verificando Indices, Tabela: Dicionario
+Controle Execução 18: 
+Controle Execução 17: 
+Controle Execução 16: 
+Controle Execução 15: 
+Controle Execução 14: 
+Controle Execução 13: 
+Controle Execução 12: 
+Controle Execução 11: 
+Controle Execução 10: 
+Controle Execução 9: 
+Controle Execução 8: 
+Controle Execução 7: 
+Controle Execução 6: 
+Controle Execução 5: 
+Controle Execução 4: 
+Controle Execução 3: 
+Controle Execução 2: 
+Controle Execução 1: 
+
+Empresa:               / 
+Usuario:               / 
+Último Botão:         frmCadCliente->Cadastrar
+Último Edit:          Next, frmCadCliente->Data de nascimento:, Text: 09/12/05
+Última Tecla:         13
+Último Aviso:         Instalação Concluída
+
+Sistema Operacional:  Windows NT / 2003 / XP / Versão: 10.0.19044
+Memória Total:        2047 MB, (Usada: 50,000 %)
+Endereço IP Local:    192.168.50.230
+Nome do Computador:   DESKTOP-CGKE8G9
+Banco de Dados:       POSTGRESQL
+Endereço Servidor:    localhost
+Base de Dados:        estacionamento
+Compilador:           VER340 (Delphi 10.4 Sydney)
+

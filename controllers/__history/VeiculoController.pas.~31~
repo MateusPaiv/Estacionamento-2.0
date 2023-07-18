@@ -1,0 +1,57 @@
+unit VeiculoController;
+
+interface
+uses Generics.Collections,VeiculoModel,connection,RpDriverAdapter,SqlFun;
+type
+  TVeiculoController = class
+    private
+    public
+      function insertVeiculos(modelo,placa,ano:string;tipoCadVeiculo:integer):boolean;
+end;
+implementation
+
+uses
+  Vcl.Dialogs;
+
+{ TVeiculoController }
+
+function TVeiculoController.insertVeiculos(modelo, placa, ano: string;tipoCadVeiculo:integer): boolean;
+var listaVeiculo:TObjectList<TVeiculo>;
+    Q:IQuery;
+begin
+   if tipoCadVeiculo = 0 then begin
+
+     if (modelo='') then begin
+        MessageDlg('Modelo não pode estar vazio',mtinformation,[mbOK],0);
+        Result := false;
+        exit;
+     end;
+     if (placa='') then begin
+        MessageDlg('Placa não pode estar vazio',mtinformation,[mbOK],0);
+        Result := false;
+        exit;
+     end;
+     if (ano='') then begin
+        MessageDlg('Ano não pode estar vazio',mtinformation,[mbOK],0);
+        Result := false;
+        exit;
+     end;
+
+     Q:=SqlToQuery('SELECT id_clie FROM clientes ORDER BY id_clie DESC LIMIT 1');
+     ListaVeiculo := TObjectList<TVeiculo>.Create;
+     ListaVeiculo.add(TVeiculo.Create(modelo,placa,ano,Q.FieldByName('id_clie').AsInteger));
+     dm.cadastrarVeiculo(ListaVeiculo);
+   end else if tipoCadVeiculo = 1 then begin
+     if (placa='') then begin
+        MessageDlg('Placa não pode estar vazio',mtinformation,[mbOK],0);
+        Result := false;
+        exit;
+     end;
+
+     ListaVeiculo:=TObjectList<TVeiculo>.Create;
+     ListaVeiculo.add(TVeiculo.Create('N',placa,'N',0));
+     dm.cadastrarVeiculo(ListaVeiculo);
+   end;
+end;
+
+end.
