@@ -1,0 +1,36 @@
+unit BaixarMovimentoView;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, SQLEd,
+  Vcl.Buttons, SQLBtn, Vcl.ExtCtrls;
+
+type
+  TfrmBxMovimento = class(TForm)
+    Panel1: TPanel;
+    btnLancaMvt: TSQLBtn;
+    edtPlaca: TSQLEd;
+    procedure btnLancaMvtClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmBxMovimento: TfrmBxMovimento;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmBxMovimento.btnLancaMvtClick(Sender: TObject);
+var horahoje:TTime;
+begin
+   horahoje:=TimeOf(now);
+
+end;
+
+end.

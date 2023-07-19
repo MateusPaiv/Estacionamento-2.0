@@ -61,7 +61,6 @@ begin
    ListaCliente := TObjectList<TCliente>.Create;
    ListaCliente.add(TCliente.Create(nome,sobrenome,cpf));
    dm.cadastrarClientes(ListaCliente);
-   listaCliente.Free;
 end;
 
 end.

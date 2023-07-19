@@ -1,0 +1,15 @@
+unit UsuariosModel;
+
+interface
+type
+  TUsuarios = class
+  private
+    Fusuarios: integer;
+    Fsenha: string;
+  published
+    property usuarios: string read Fusuarios write Fusuarios;
+    property senha: string read Fsenha write Fsenha;
+  end;
+implementation
+
+end.

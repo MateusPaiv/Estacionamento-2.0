@@ -1,0 +1,30 @@
+unit LoginController;
+
+interface
+uses
+  RpDriverAdapter,SqlFun,SysUtils,Generics.Collections,connection;
+type
+  TLoginController = class
+    private
+    public
+      function logar(usuario,senha:string):boolean;
+  end;
+  var
+    loginControl:TLoginController;
+implementation
+
+{ TLoginController }
+
+function TLoginController.logar(usuario, senha: string): boolean;
+begin
+   if(usuario='')or(senha='')then begin
+      AvisoErro('Usuário ou senha estão vazios!');
+      Result:=false;
+      exit;
+   end;
+   Result:=true;
+   dm.Login(usuario,senha);
+
+end;
+
+end.

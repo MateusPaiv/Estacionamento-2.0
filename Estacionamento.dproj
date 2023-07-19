@@ -134,6 +134,17 @@
             <Form>frmLacamentoMvt</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="views\BaixarMovimentoView.pas">
+            <Form>frmBxMovimento</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="views\LoginView.pas">
+            <Form>frmLogin</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="model\UsuariosModel.pas"/>
+        <DCCReference Include="controllers\UsuarioController.pas"/>
+        <DCCReference Include="controllers\LoginController.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

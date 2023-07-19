@@ -1,0 +1,55 @@
+unit SplashView;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.ExtCtrls, Vcl.StdCtrls;
+
+type
+  TfrmSplash = class(TForm)
+    Timer1: TTimer;
+    ProgressBar1: TProgressBar;
+    lblStatus: TLabel;
+    procedure Timer1Timer(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmSplash: TfrmSplash;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmSplash.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+   Application.Terminate;
+end;
+
+procedure TfrmSplash.Timer1Timer(Sender: TObject);
+begin
+   if ProgressBar1.Position <= 100 then begin
+      ProgressBar1.StepIt;
+      case ProgressBar1.Position of
+          10:
+            lblStatus.Caption := 'Carregando dependências...';
+          20:
+            lblStatus.Caption := 'Conectando ao banco de dados...';
+          40:
+            lblStatus.Caption := 'Carregando as configurações...';
+          80:
+            lblStatus.Caption := 'Iniciando o sistema...';
+      end;
+   end;
+
+   if ProgressBar1.Position = 100 then begin
+      Close;
+   end;
+end;
+
+end.

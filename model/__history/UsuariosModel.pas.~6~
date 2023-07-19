@@ -1,0 +1,32 @@
+unit UsuariosModel;
+
+interface
+type
+  TUsuarios = class
+  private
+    Fusuarios: string;
+    Fsenha: string;
+    FidFunc: integer;
+  public
+    constructor Create;
+    destructor  Destroy;override;
+    property usuarios: string read Fusuarios write Fusuarios;
+    property senha: string read Fsenha write Fsenha;
+    property idFunc: integer read FidFunc write FidFunc;
+  end;
+implementation
+
+{ TUsuarios }
+
+constructor TUsuarios.Create;
+begin
+   Self.Create;
+end;
+
+destructor TUsuarios.Destroy;
+begin
+  inherited;
+  self.Free;
+end;
+
+end.

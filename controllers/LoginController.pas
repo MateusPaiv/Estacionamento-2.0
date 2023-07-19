@@ -1,0 +1,36 @@
+unit LoginController;
+
+interface
+uses
+  RpDriverAdapter,SqlFun,SysUtils,Generics.Collections,connection;
+type
+  TLoginController = class
+    private
+    public
+      function logar(usuario,senha:string):boolean;
+  end;
+  var
+    loginControl:TLoginController;
+implementation
+
+{ TLoginController }
+
+function TLoginController.logar(usuario, senha: string): boolean;
+var Q:IQuery;
+    id:integer;
+begin
+
+   if(usuario='')or(senha='')then begin
+      AvisoErro('Usuário ou senha estão vazios!');
+      Result:=false;
+      exit;
+   end;
+
+   Q:=SqlToQuery('SELECT id_usua_func FROM usuarios WHERE usuario='+QuotedStr(usuario)+' AND senha='+QuotedStr(senha));
+   Result:=true;
+   id:=Q.getInteger('id_usua_func');
+   dm.Login(usuario,senha,id);
+
+end;
+
+end.

@@ -1,0 +1,43 @@
+unit UsuarioController;
+
+interface
+uses
+   RpDriverAdapter,SqlSis,SqlFun,Generics.Collections,UsuariosModel,SysUtils;
+type
+  TUsuarioController = class
+    private
+    public
+      function cadastrarUsuario(nome,nomeFunc,senha:string):Boolean;
+  end;
+implementation
+
+{ TUsuarioController }
+
+function TUsuarioController.cadastrarUsuario(nome,nomeFunc ,senha: string): Boolean;
+var Q:IQuery;
+    ListUser:TObjectList<TUsuarios>;
+    id:integer;
+begin
+   if (nome='') or (nomeFunc='') or (senha='') then begin
+      AvisoErro('CAMPO VAZIO');
+      exit;
+   end;
+
+   Q:=SqlToQuery('SELECT id_func FROM nome='+QuotedStr(nomeFunc));
+
+   if Q.IsEmpty then begin
+      AvisoErro('Funcionário não encontrado');
+      exit;
+   end else begin
+      id:=Q.FieldByName('id_func').AsInteger;
+      ListUser:=TObjectList<TUsuarios>.create;
+      ListUser.Add(TUsuarios.Create(nome,senha,id));
+   end;
+
+
+
+
+
+end;
+
+end.

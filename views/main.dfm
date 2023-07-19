@@ -13,6 +13,7 @@ object frmMain: TfrmMain
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
+  OnActivate = FormActivate
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
@@ -67,6 +68,8 @@ object frmMain: TfrmMain
         Align = alLeft
         BevelOuter = bvNone
         TabOrder = 0
+        ExplicitLeft = -3
+        ExplicitTop = 6
         object btnCadCliente: TSQLBtn
           AlignWithMargins = True
           Left = 28
@@ -150,28 +153,34 @@ object frmMain: TfrmMain
             Align = alClient
             BevelOuter = bvNone
             TabOrder = 0
-            object Label1: TLabel
+            ExplicitTop = -6
+            object lblMvtBaixados: TLabel
               AlignWithMargins = True
-              Left = 461
+              Left = 411
               Top = 3
               Width = 127
               Height = 67
-              Margins.Right = 10
+              Margins.Right = 60
               Align = alRight
               Alignment = taCenter
               Caption = 'Movimentos Baixados hoje'
               Layout = tlCenter
-              ExplicitHeight = 13
+              ExplicitLeft = 461
+              ExplicitTop = 6
             end
-            object Label3: TLabel
-              Left = 0
-              Top = 0
+            object lblVagasPreenchidas: TLabel
+              AlignWithMargins = True
+              Left = 60
+              Top = 3
               Width = 90
-              Height = 73
+              Height = 67
+              Margins.Left = 60
               Align = alLeft
               Alignment = taCenter
               Caption = 'Vagas preenchidas'
               Layout = tlCenter
+              ExplicitLeft = 0
+              ExplicitTop = 0
               ExplicitHeight = 13
             end
           end
@@ -184,6 +193,8 @@ object frmMain: TfrmMain
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitLeft = 3
+          ExplicitTop = 76
           object pnlBotoes: TPanel
             Left = 0
             Top = 263
@@ -192,23 +203,28 @@ object frmMain: TfrmMain
             Align = alBottom
             BevelOuter = bvNone
             TabOrder = 0
+            ExplicitLeft = 6
+            ExplicitTop = 269
             object pnlLancaMov: TPanel
-              AlignWithMargins = True
-              Left = 170
-              Top = 3
-              Width = 378
-              Height = 95
+              Left = 0
+              Top = 0
+              Width = 598
+              Height = 101
               Margins.Left = 170
               Margins.Right = 50
               Align = alClient
               BevelOuter = bvNone
               TabOrder = 0
+              ExplicitLeft = 170
+              ExplicitTop = 3
+              ExplicitWidth = 378
+              ExplicitHeight = 95
               object btnLancarMovimento: TSQLBtn
                 AlignWithMargins = True
-                Left = 233
+                Left = 453
                 Top = 40
                 Width = 135
-                Height = 40
+                Height = 46
                 Margins.Left = 0
                 Margins.Top = 40
                 Margins.Right = 10
@@ -234,10 +250,10 @@ object frmMain: TfrmMain
               end
               object btnBaixaMvt: TSQLBtn
                 AlignWithMargins = True
-                Left = 88
+                Left = 308
                 Top = 40
                 Width = 135
-                Height = 40
+                Height = 46
                 Margins.Left = 0
                 Margins.Top = 40
                 Margins.Right = 10
@@ -250,6 +266,65 @@ object frmMain: TfrmMain
                 Font.Name = 'Tahoma'
                 Font.Style = []
                 ParentFont = False
+                OnClick = btnBaixaMvtClick
+                Operation = fbNone
+                Processing = False
+                AutoAction = True
+                GlyphSqlEnv = True
+                IntervalRepeat = 0
+                DownUp = False
+                ExplicitLeft = 224
+                ExplicitTop = 50
+                ExplicitHeight = 42
+              end
+              object btnUpMvtBaixados: TSQLBtn
+                AlignWithMargins = True
+                Left = 18
+                Top = 40
+                Width = 135
+                Height = 46
+                Margins.Left = 0
+                Margins.Top = 40
+                Margins.Right = 10
+                Margins.Bottom = 15
+                Align = alRight
+                Caption = 'Atualizar Movimentos'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+                OnClick = btnUpMvtBaixadosClick
+                Operation = fbNone
+                Processing = False
+                AutoAction = True
+                GlyphSqlEnv = True
+                IntervalRepeat = 0
+                DownUp = False
+                ExplicitLeft = 224
+                ExplicitTop = 50
+                ExplicitHeight = 42
+              end
+              object btnAtulizarVagas: TSQLBtn
+                AlignWithMargins = True
+                Left = 163
+                Top = 40
+                Width = 135
+                Height = 46
+                Margins.Left = 0
+                Margins.Top = 40
+                Margins.Right = 10
+                Margins.Bottom = 15
+                Align = alRight
+                Caption = 'Atualizar vagas'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+                OnClick = btnAtulizarVagasClick
                 Operation = fbNone
                 Processing = False
                 AutoAction = True
@@ -261,24 +336,6 @@ object frmMain: TfrmMain
                 ExplicitHeight = 42
               end
             end
-          end
-          object Panel1: TPanel
-            Left = 361
-            Top = 0
-            Width = 237
-            Height = 263
-            Align = alRight
-            BevelOuter = bvNone
-            TabOrder = 1
-          end
-          object Panel3: TPanel
-            Left = 0
-            Top = 0
-            Width = 265
-            Height = 263
-            Align = alLeft
-            BevelOuter = bvNone
-            TabOrder = 2
           end
         end
       end

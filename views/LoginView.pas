@@ -1,0 +1,34 @@
+unit LoginView;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, SQLEd,
+  Vcl.Buttons, SQLBtn,LoginController;
+
+type
+  TfrmLogin = class(TForm)
+    etdUsuario: TSQLEd;
+    edtSenha: TSQLEd;
+    btnEntrar: TSQLBtn;
+    procedure btnEntrarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmLogin: TfrmLogin;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmLogin.btnEntrarClick(Sender: TObject);
+begin
+  if loginControl.logar(etdUsuario.Text,edtSenha.Text) then self.Close;
+end;
+
+end.

@@ -16,7 +16,12 @@ uses
   SplashView in 'views\SplashView.pas' {frmSplash},
   MovimentoModel in 'model\MovimentoModel.pas',
   MovimentoController in 'controllers\MovimentoController.pas',
-  LancarMovimentoView in 'views\LancarMovimentoView.pas' {frmLacamentoMvt};
+  LancarMovimentoView in 'views\LancarMovimentoView.pas' {frmLacamentoMvt},
+  BaixarMovimentoView in 'views\BaixarMovimentoView.pas' {frmBxMovimento},
+  LoginView in 'views\LoginView.pas' {frmLogin},
+  UsuariosModel in 'model\UsuariosModel.pas',
+  UsuarioController in 'controllers\UsuarioController.pas',
+  LoginController in 'controllers\LoginController.pas';
 
 {$R *.res}
 
@@ -25,6 +30,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TfrmMain, frmMain);
   Application.CreateForm(Tdm, dm);
-  ReportMemoryLeaksOnShutdown := true;
   Application.Run;
 end.

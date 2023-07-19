@@ -8,7 +8,8 @@ uses
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, System.Contnrs,ClienteModel,
-  Vcl.Dialogs,Generics.Collections,VeiculoModel ,FuncionarioModel,MovimentoModel,DateUtils;
+  Vcl.Dialogs,Generics.Collections,VeiculoModel ,FuncionarioModel,MovimentoModel,DateUtils
+  ,UsuariosModel;
 
 type
   Tdm = class(TDataModule)
@@ -22,18 +23,60 @@ type
     function cadastrarClientes(Clientes:TObjectList<TCliente>):Boolean;
     function cadastrarVeiculo(Veiculos:TObjectList<TVeiculo>):Boolean;
     function cadastrarFuncionario(Funcionarios:TObjectList<TFuncionario>):Boolean;
+    function cadastrarUsuario(Usuarios:TObjectList<TUsuarios>):Boolean;
+    function login(usuario,senha:string;id:integer):boolean;
     function lancarMovimento(Movimentos:TobjectList<TMovimento>):Boolean;
+    function BaixarMovimento(Movimentos:TobjectList<TMovimento>):Boolean;
     procedure mostrarCdgMvt;
   end;
 
 var dm: Tdm;
-    idTest:integer;
+     idTest:integer;
 
 implementation
-
 {$R *.dfm}
 
 { TDataModule1 }
+
+function Tdm.BaixarMovimento(Movimentos: TobjectList<TMovimento>): Boolean;
+var horaHoje:TTime;
+begin
+   horaHoje:=TimeOf(Now);
+   Sistema.Insert('movimentos');
+   Sistema.SetField('saida_data',Sistema.Hoje);
+   Sistema.SetField('saida_hora',TimeToStr(horaHoje));
+   Sistema.SetField('valor',Movimentos[0].valor);
+   Sistema.Post('id_mvt='+IntToStr(Movimentos[0].idMvt));
+   Sistema.Commit;
+
+   Aviso('Valor do serviço:'+CurrToStr(Movimentos[0].valor));
+end;
+
+function Tdm.lancarMovimento(Movimentos: TobjectList<TMovimento>): Boolean;
+var HoraHoje:TTime;
+    DataHoje:TDate;
+begin
+   HoraHoje:= TimeOf(Now);
+   Sistema.Insert('movimentos');
+   Sistema.SetField('entrada_data',Sistema.Hoje);
+   Sistema.setField('entrada_hora',TimeToStr(HoraHoje));
+   Sistema.SetField('id_mvt_cadastro_func',Movimentos[0].idFuncCadastrouMovimento);
+   Sistema.SetField('id_mvt_manobrista_func',Movimentos[0].idFuncManobristaMovimento);
+   Sistema.SetField('id_mvt_veic',Movimentos[0].idVeic);
+   Sistema.Post;
+   Sistema.Commit;
+   Aviso('Movimento lançado!');
+
+   mostrarCdgMvt;
+end;
+
+function Tdm.Login(usuario, senha: string;id:integer): boolean;
+var Q:IQuery;
+begin
+    Q:=SqlToQuery('SELECT usuario,senha FROM usuarios WHERE usuario='+QuotedStr(usuario)+' AND senha='+QuotedStr(senha));
+    idTest:=id;
+    Result:=true;
+end;
 
 function Tdm.cadastrarClientes(Clientes:TObjectList<TCliente>): Boolean;
 begin
@@ -61,6 +104,18 @@ begin
    Sistema.Commit;
 
    Aviso('Funcionário cadastrado com sucesso');
+end;
+
+function Tdm.cadastrarUsuario(Usuarios: TObjectList<TUsuarios>): Boolean;
+begin
+   Sistema.Insert('usuarios');
+   Sistema.SetField('usuario',Usuarios[0].usuario);
+   Sistema.SetField('senha',Usuarios[0].senha);
+   Sistema.SetField('id_usua_func',Usuarios[0].idFunc);
+   Sistema.Post;
+   Sistema.Commit;
+
+   Aviso('Usuário cadastrado com sucesso');
 end;
 
 function Tdm.cadastrarVeiculo(Veiculos: TObjectList<TVeiculo>): Boolean;
@@ -92,29 +147,12 @@ begin
 end;
 
 
-function Tdm.lancarMovimento(Movimentos: TobjectList<TMovimento>): Boolean;
-var HoraHoje:TTime;
-    DataHoje:TDate;
-begin
-   HoraHoje:= TimeOf(Now);
-   Sistema.Insert('movimentos');
-   Sistema.SetField('entrada_data',Sistema.Hoje);
-   Sistema.setField('entrada_hora',TimeToStr(HoraHoje));
-   Sistema.SetField('id_mvt_cadastro_func',Movimentos[0].idFuncCadastrouMovimento);
-   Sistema.SetField('id_mvt_manobrista_func',Movimentos[0].idFuncManobristaMovimento);
-   Sistema.SetField('id_mvt_veic',Movimentos[0].idVeic);
-   Sistema.Post;
-   Sistema.Commit;
-   Aviso('Movimento lançado!');
-
-   mostrarCdgMvt;
-end;
 
 procedure Tdm.mostrarCdgMvt;
 var Q:IQuery;
 begin
    Q:=SqlToQuery('SELECT id_mvt FROM movimentos ORDER BY id_mvt DESC LIMIT 1');
-   MessageDlg('Código para entrega ao final do serviço para ser realizado o pagamento'+Q.FieldByName('id_mvt').AsInteger.ToString,mtInformation,[mbOK],0);
+   MessageDlg('Código para entrega ao final do serviço para ser realizado o pagamento: '+Q.FieldByName('id_mvt').AsInteger.ToString,mtInformation,[mbOK],0);
 end;
 
 end.

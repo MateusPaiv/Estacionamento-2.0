@@ -21,7 +21,7 @@ object frmFuncionarioView: TfrmFuncionarioView
     Width = 614
     Height = 411
     Align = alClient
-    ActiveCard = viewFuncionarios
+    ActiveCard = viewCadastraUsuario
     Caption = 'Funcionario'
     TabOrder = 0
     object viewFuncionarios: TCard
@@ -70,7 +70,7 @@ object frmFuncionarioView: TfrmFuncionarioView
         end
         object bFiltrar: TSQLBtn
           AlignWithMargins = True
-          Left = 321
+          Left = 182
           Top = 13
           Width = 46
           Height = 36
@@ -127,6 +127,32 @@ object frmFuncionarioView: TfrmFuncionarioView
           IntervalRepeat = 0
           DownUp = False
           ExplicitLeft = 272
+        end
+        object btnCadastrarUsuario: TSQLBtn
+          AlignWithMargins = True
+          Left = 248
+          Top = 13
+          Width = 119
+          Height = 36
+          Margins.Left = 10
+          Margins.Top = 13
+          Margins.Right = 10
+          Margins.Bottom = 13
+          Align = alRight
+          Caption = 'Cadastrar Usu'#225'rio'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Roboto'
+          Font.Style = []
+          ParentFont = False
+          OnClick = btnCadastrarUsuarioClick
+          Operation = fbNone
+          Processing = False
+          AutoAction = True
+          GlyphSqlEnv = True
+          IntervalRepeat = 0
+          DownUp = False
         end
       end
       object pnlMain: TPanel
@@ -720,6 +746,168 @@ object frmFuncionarioView: TfrmFuncionarioView
             Group = 0
           end
         end
+      end
+    end
+    object viewCadastraUsuario: TCard
+      Left = 1
+      Top = 1
+      Width = 612
+      Height = 409
+      Caption = 'viewCadastraUsuario'
+      CardIndex = 2
+      TabOrder = 2
+      ExplicitLeft = 0
+      object btnCadastraUsuario: TSQLBtn
+        Left = 256
+        Top = 224
+        Width = 79
+        Height = 25
+        Caption = 'Cadastrar'
+        OnClick = btnCadastraUsuarioClick
+        Operation = fbNone
+        Processing = False
+        AutoAction = True
+        GlyphSqlEnv = True
+        IntervalRepeat = 0
+        DownUp = False
+      end
+      object Panel5: TPanel
+        Left = 0
+        Top = 359
+        Width = 612
+        Height = 50
+        Align = alBottom
+        BevelOuter = bvNone
+        TabOrder = 0
+        object SQLBtn1: TSQLBtn
+          AlignWithMargins = True
+          Left = 507
+          Top = 7
+          Width = 102
+          Height = 36
+          Margins.Top = 7
+          Margins.Bottom = 7
+          Align = alRight
+          Caption = 'Sair'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Roboto'
+          Font.Style = []
+          ParentFont = False
+          OnClick = btnSairClick
+          Operation = fbNone
+          Processing = False
+          AutoAction = True
+          GlyphSqlEnv = True
+          IntervalRepeat = 0
+          DownUp = False
+        end
+      end
+      object edtUsuario: TSQLEd
+        Left = 216
+        Top = 80
+        Width = 161
+        Height = 21
+        TabStop = False
+        Alignment = taLeftJustify
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+        Text = ''
+        Visible = True
+        Empty = True
+        CloseForm = False
+        CloseFormEsc = False
+        ColorFocus = clBlack
+        ColorTextFocus = clWhite
+        ColorNotEnabled = clGray
+        ColorNormal = clWhite
+        ColorTextNormal = clBlack
+        ColorTextNotEnabled = clWhite
+        Title = 'Usu'#225'rio:'
+        TitlePos = tppTop
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        TitlePixels = 0
+        TypeValue = tvString
+        ValueNegative = False
+        Decimals = 0
+        CharUpperLower = False
+        ItemsMultiples = False
+        ItemsValid = True
+        ItemsWidth = 0
+        ItemsHeight = 0
+        ItemsLength = 0
+        Duplicity = 0
+        MinLength = 0
+        Group = 0
+      end
+      object edtSenha: TSQLEd
+        Left = 216
+        Top = 128
+        Width = 161
+        Height = 21
+        TabStop = False
+        Alignment = taLeftJustify
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        PasswordChar = '*'
+        TabOrder = 2
+        Text = ''
+        Visible = True
+        Empty = True
+        CloseForm = False
+        CloseFormEsc = False
+        ColorFocus = clBlack
+        ColorTextFocus = clWhite
+        ColorNotEnabled = clGray
+        ColorNormal = clWhite
+        ColorTextNormal = clBlack
+        ColorTextNotEnabled = clWhite
+        Title = 'Senha:'
+        TitlePos = tppTop
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        TitlePixels = 0
+        TypeValue = tvString
+        ValueNegative = False
+        Decimals = 0
+        CharUpperLower = False
+        ItemsMultiples = False
+        ItemsValid = True
+        ItemsWidth = 0
+        ItemsHeight = 0
+        ItemsLength = 0
+        Duplicity = 0
+        MinLength = 0
+        Group = 0
+      end
+      object ComboBox1: TComboBox
+        Left = 216
+        Top = 179
+        Width = 161
+        Height = 21
+        TabOrder = 3
+        TextHint = 'Funcion'#225'rio'
+        OnEnter = ComboBox1Enter
+        OnExit = ComboBox1Exit
       end
     end
   end
