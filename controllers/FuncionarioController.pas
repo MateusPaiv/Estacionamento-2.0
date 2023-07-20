@@ -9,6 +9,7 @@ type
     private
     public
       function insertFuncionario(nome,sobrenome,cpf,celular,cep,endereco,numero:string):boolean;
+      function editarFuncionario(nome,sobrenome,cpf,celular,cep,endereco,numero:string;id:integer):boolean;
       procedure carregarGrid(Grid:TSqlDtGrid);
       procedure carregarComboBox(combo:TComboBox);
   end;
@@ -46,6 +47,7 @@ begin
        Grid.Cells[Grid.GetColumn('celular'),i]:=Q.getString('celular');
        Grid.Cells[Grid.GetColumn('endereco'),i]:=Q.getString('endereco');
        Grid.Cells[Grid.GetColumn('numero'),i]:=Q.getString('numero');
+       Grid.Cells[Grid.GetColumn('id'),i]:=Q.getString('id_func');
        inc(i);
        if Grid.RowCount < i then begin
           Grid.CreateNewRow;
@@ -55,6 +57,60 @@ begin
      Q.Free;Q.Close;
    end else begin
      Aviso('nenhum usuário encontrado');
+   end;
+end;
+
+function TFuncionarioController.editarFuncionario(nome, sobrenome, cpf, celular,
+  cep, endereco, numero: string; id: integer): boolean;
+  var listaFuncionario:TObjectList<TFuncionario> ;
+begin
+    if (nome='') then begin
+      MessageDlg('Nome não pode estar vazio',mtinformation,[mbOK],0);
+      Result := false;
+      exit;
+   end;
+   if (sobrenome='') then begin
+      MessageDlg('Sobrenome não pode estar vazio',mtinformation,[mbOK],0);
+      Result := false;
+      exit;
+   end;
+   if (Cpf='') then begin
+      MessageDlg('CPF não pode estar vazio',mtinformation,[mbOK],0);
+      Result := false;
+      exit;
+   end;
+    if (celular='') then begin
+      MessageDlg('Celular não pode estar vazio',mtinformation,[mbOK],0);
+      Result := false;
+      exit;
+   end;
+   if Length(celular) >11 then begin
+      MessageDlg('Celular não pode ter mais que 11 números',mtinformation,[mbOK],0);
+      Result := false;
+      exit;
+   end;
+    if (cep='') then begin
+      MessageDlg('CEP não pode estar vazio',mtinformation,[mbOK],0);
+      Result := false;
+      exit;
+   end;
+    if (endereco='') then begin
+      MessageDlg('Endereco não pode estar vazio',mtinformation,[mbOK],0);
+      Result := false;
+      exit;
+   end;
+    if (numero='') then begin
+      MessageDlg('Número não pode estar vazio',mtinformation,[mbOK],0);
+      Result := false;
+      exit;
+   end;
+
+    Result:=true;
+   if Result=true then begin
+      listaFuncionario:=TObjectList<TFuncionario>.Create;
+      listaFuncionario.Add(TFuncionario.Create(nome,sobrenome,cpf,celular,cep,endereco,numero,id));
+      dm.editarFuncionario(ListaFuncionario);
+      listaFuncionario.Free;
    end;
 end;
 

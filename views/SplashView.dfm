@@ -22,7 +22,6 @@ object frmSplash: TfrmSplash
     Height = 321
     Align = alClient
     Alignment = taCenter
-    Caption = 'lblStatus'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -40
@@ -30,7 +29,7 @@ object frmSplash: TfrmSplash
     Font.Style = [fsBold, fsItalic]
     ParentFont = False
     Layout = tlCenter
-    ExplicitWidth = 124
+    ExplicitWidth = 12
     ExplicitHeight = 42
   end
   object ProgressBar1: TProgressBar

@@ -21,7 +21,7 @@ object frmFuncionarioView: TfrmFuncionarioView
     Width = 614
     Height = 411
     Align = alClient
-    ActiveCard = viewCadastraUsuario
+    ActiveCard = viewFuncionarios
     Caption = 'Funcionario'
     TabOrder = 0
     object viewFuncionarios: TCard
@@ -182,10 +182,12 @@ object frmFuncionarioView: TfrmFuncionarioView
             Width = 512
             Height = 252
             Align = alClient
+            ColCount = 6
             DefaultRowHeight = 20
             FixedCols = 0
             Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goDrawFocusSelected, goColSizing]
             TabOrder = 0
+            OnSelectCell = GridSelectCell
             Columns = <
               item
                 Title.Caption = 'Nome'
@@ -237,16 +239,33 @@ object frmFuncionarioView: TfrmFuncionarioView
                 Title.Font.Style = []
                 WidthColumn = 80
                 FieldName = 'numero'
+              end
+              item
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -13
+                Font.Name = 'Roboto'
+                Font.Style = []
+                Title.Caption = 'C'#243'digo'
+                Title.Font.Charset = DEFAULT_CHARSET
+                Title.Font.Color = clWindowText
+                Title.Font.Height = -13
+                Title.Font.Name = 'Roboto'
+                Title.Font.Style = []
+                WidthColumn = 64
+                FieldName = 'id'
               end>
             RowCountMin = 0
             SelectedIndex = 0
             Version = '2.0'
+            ExplicitWidth = 513
             ColWidths = (
               100
               100
               100
               100
-              80)
+              80
+              64)
           end
         end
         object pnlTitle: TPanel
@@ -365,7 +384,7 @@ object frmFuncionarioView: TfrmFuncionarioView
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 0
-          object btnCadastrarClie: TSQLBtn
+          object btnCadastrarFunc: TSQLBtn
             AlignWithMargins = True
             Left = 40
             Top = 275
@@ -381,7 +400,7 @@ object frmFuncionarioView: TfrmFuncionarioView
             Font.Name = 'Roboto'
             Font.Style = []
             ParentFont = False
-            OnClick = btnCadastrarClieClick
+            OnClick = btnCadastrarFuncClick
             Operation = fbNone
             Processing = False
             AutoAction = True
@@ -756,13 +775,18 @@ object frmFuncionarioView: TfrmFuncionarioView
       Caption = 'viewCadastraUsuario'
       CardIndex = 2
       TabOrder = 2
-      ExplicitLeft = 0
       object btnCadastraUsuario: TSQLBtn
         Left = 256
         Top = 224
         Width = 79
         Height = 25
         Caption = 'Cadastrar'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         OnClick = btnCadastraUsuarioClick
         Operation = fbNone
         Processing = False

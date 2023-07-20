@@ -1,0 +1,114 @@
+
+
+Erro 1:               Field 'id_mvt' not found
+Erro 2:               Erro No Banco De Dados 
+
+Data/Hora:            20/07/2023 - 16:17:03
+Arquivo Err:          C:\Users\Eduardo\Documents\Delphi\Estacionamento\Win32\Debug\Erro0063.ERR
+
+StackTrace:           
+(GetCrashStackTrace)
+006c3c9e Estacionamento.exe Data.DB              3238 DatabaseError
+006c3d3d Estacionamento.exe Data.DB              3244 DatabaseErrorFmt
+006da5a8 Estacionamento.exe Data.DB             13283 Error
+006da5ef Estacionamento.exe Data.DB             13288 TDataSet.FieldByName
+008395cb Estacionamento.exe RpDriverAdapter        80 IQuery.getString
+00e1435f Estacionamento.exe MovimentoController    94 TMovimentoController.carregarGrid
+00e165f0 Estacionamento.exe VagasView              28 TfrmVagasView.FormActivate
+0066a3b3 Estacionamento.exe Vcl.Forms            6353 TCustomForm.Activate
+0066b9a0 Estacionamento.exe Vcl.Forms            7184 TCustomForm.CMActivate
+00588d2a Estacionamento.exe Vcl.Controls         7480 TControl.WndProc
+0058dc7f Estacionamento.exe Vcl.Controls        10424 TWinControl.WndProc
+00667847 Estacionamento.exe Vcl.Forms            4787 TCustomForm.WndProc
+0058d1cc Estacionamento.exe Vcl.Controls        10113 TWinControl.MainWndProc
+004943a4 Estacionamento.exe System.Classes      18175 StdWndProc
+772a5d6a USER32.dll                                   SendMessageW
+0066ca24 Estacionamento.exe Vcl.Forms            7721 TCustomForm.ShowModal
+0066cb7d Estacionamento.exe Vcl.Forms            7747 TCustomForm.ShowModal
+0066cc97 Estacionamento.exe Vcl.Forms            7771 TCustomForm.ShowModal
+00e1762b Estacionamento.exe main                  101 TfrmMain.btnVisualizarEstacionamentoClick
+00589283 Estacionamento.exe Vcl.Controls         7596 TControl.Click
+00684a20 Estacionamento.exe Vcl.Buttons          1964 TCustomSpeedButton.Click
+00a8ffe6 Estacionamento.exe SQLBtn                285 TSQLBtn.Click
+00a90015 Estacionamento.exe SQLBtn                287 TSQLBtn.Click
+00684a0a Estacionamento.exe Vcl.Buttons          1957 TCustomSpeedButton.MouseUp
+00a9054c Estacionamento.exe SQLBtn                402 TSQLBtn.MouseUp
+005896b4 Estacionamento.exe Vcl.Controls         7724 TControl.DoMouseUp
+00589742 Estacionamento.exe Vcl.Controls         7737 TControl.WMLButtonUp
+00588d2a Estacionamento.exe Vcl.Controls         7480 TControl.WndProc
+00588964 Estacionamento.exe Vcl.Controls         7258 TControl.Perform
+0058d480 Estacionamento.exe Vcl.Controls        10190 TWinControl.IsControlMouseMsg
+0058dad1 Estacionamento.exe Vcl.Controls        10368 TWinControl.WndProc
+0058d1cc Estacionamento.exe Vcl.Controls        10113 TWinControl.MainWndProc
+0058d1e7 Estacionamento.exe Vcl.Controls        10116 TWinControl.MainWndProc
+004943a4 Estacionamento.exe System.Classes      18175 StdWndProc
+772a5e7b USER32.dll                                   DispatchMessageW
+006716cf Estacionamento.exe Vcl.Forms           11028 TApplication.ProcessMessage
+00671712 Estacionamento.exe Vcl.Forms           11058 TApplication.HandleMessage
+00671a49 Estacionamento.exe Vcl.Forms           11196 TApplication.Run
+76ce00c7 KERNEL32.DLL                                 BaseThreadInitThunk
+
+Comando 20:  select MAX(saida_prevista::time),id_mvt_veic ,v.modelo,v.ano,v.placa from movimentos 
+as m inner join veiculos v on v.id_veic=m.id_mvt_veic where m.entrada_data='20/07/23' 
+and valor is null group by m.id_mvt_veic,v.id_veic, m.saida_prevista order by saida_prevista 
+desc  limit 1
+Comando 19: select tabela,campo,tipo,titulo,mensagem,mascara,tamanho,casasdec,width,altera,empty,
+alinhamento,totalizacao,colbasetot,duplicity from dicionario where tabela='FORMATOSREL' 
+order by tabela,campo
+Comando 18: SELECT * FROM formatosrel WHERE 1=2
+Comando 17: SELECT COUNT(*) as totalbx FROM movimentos WHERE valor IS NOT NULL AND saida_data='20/07/23'
+Comando 16: SELECT COUNT(*) as total FROM movimentos WHERE valor IS NULL
+Comando 15: select to_char(current_timestamp(3),'YYYY-MM-DD HH24:MI:SS.MS') as server_time, cast(EXTRACT(TIMEZONE 
+FROM current_timestamp)/3600 as integer) as offset
+Comando 14: select campo from dicionario where tabela='GERALOGCOMANDOS'
+Comando 13: SELECT Campo, Titulo FROM Dicionario WHERE Tabela='SYSTEM'
+Comando 12: select tabela,campo,tipo,titulo,mensagem,mascara,tamanho,casasdec,width,altera,empty,
+alinhamento,totalizacao,colbasetot,duplicity from dicionario where tabela='VERSAOSYSTEM' 
+order by tabela,campo
+Comando 11: 
+Comando 10: 
+Comando 9: 
+Comando 8: 
+Comando 7: 
+Comando 6: 
+Comando 5: 
+Comando 4: 
+Comando 3: 
+Comando 2: 
+Comando 1: 
+
+Controle Execução 20: 
+Controle Execução 19: 
+Controle Execução 18: 
+Controle Execução 17: 
+Controle Execução 16: 
+Controle Execução 15: 
+Controle Execução 14: 
+Controle Execução 13: 
+Controle Execução 12: 
+Controle Execução 11: 
+Controle Execução 10: 
+Controle Execução 9: 
+Controle Execução 8: 
+Controle Execução 7: 
+Controle Execução 6: 
+Controle Execução 5: 
+Controle Execução 4: 
+Controle Execução 3: 
+Controle Execução 2: 
+Controle Execução 1: 
+
+Empresa:               / 
+Usuario:               / 
+Último Botão:         frmMain->Visualizar vagas
+Última Tecla:         0
+
+Sistema Operacional:  Windows NT / 2003 / XP / Versão: 10.0.19044
+Memória Total:        2047 MB, (Usada: 46,000 %)
+Endereço IP Local:    192.168.50.230
+Nome do Computador:   DESKTOP-CGKE8G9
+Banco de Dados:       POSTGRESQL
+Endereço Servidor:    localhost
+Base de Dados:        estacionamento
+Compilador:           VER340 (Delphi 10.4 Sydney)
+

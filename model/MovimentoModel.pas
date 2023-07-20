@@ -13,8 +13,9 @@ type
       FidFuncManobristaMovimento: integer;
       FidVeic: integer;
       FidMvt: integer;
+    FsaidaPrevista: TTime;
     public
-      constructor Create(entradaData:TDate;entradaHora:TTime;idMvtCadastroFunc, idMvtManobristaFunc,idMvtVeic: integer)overload;
+      constructor Create(entradaData:TDate;entradaHora,saidaPrevista:TTime;idMvtCadastroFunc, idMvtManobristaFunc,idMvtVeic: integer)overload;
       constructor Create(saidaData:TDate;saidaHora:TTime;valor:Currency;idMvt:integer)overload;
       destructor Destroy;override;
       property entradaData: TDate read FentradaData write FentradaData;
@@ -22,6 +23,7 @@ type
       property entradaHora: TTime read FentradaHora write FentradaHora;
       property saidaHora: TTime read FsaidaHora write FsaidaHora;
       property valor: currency read Fvalor write Fvalor;
+      property saidaPrevista: TTime read FsaidaPrevista write FsaidaPrevista;
       property idFuncCadastrouMovimento: integer read FidFuncCadastrouMovimento write FidFuncCadastrouMovimento;
       property idFuncManobristaMovimento: integer read FidFuncManobristaMovimento write FidFuncManobristaMovimento;
       property idVeic: integer read FidVeic write FidVeic;
@@ -31,21 +33,22 @@ implementation
 
 { TMovimento }
 
-constructor TMovimento.Create(entradaData: TDate; entradaHora: TTime;idMvtCadastroFunc, idMvtManobristaFunc,idMvtVeic: integer);
+constructor TMovimento.Create(entradaData: TDate; entradaHora,saidaPrevista: TTime;idMvtCadastroFunc, idMvtManobristaFunc,idMvtVeic: integer);
 begin
-   FentradaData:=entradaData;
-   FentradaHora:=entradaHora;
-   FidFuncCadastrouMovimento:= idMvtCadastroFunc;
+   FentradaData              :=entradaData;
+   FentradaHora              :=entradaHora;
+   FsaidaPrevista            :=saidaPrevista;
+   FidFuncCadastrouMovimento :=idMvtCadastroFunc;
    FidFuncManobristaMovimento:=idMvtManobristaFunc;
-   FidVeic:=idMvtVeic;
+   FidVeic                   :=idMvtVeic;
 end;
 
 constructor TMovimento.Create(saidaData: TDate; saidaHora: TTime;valor: Currency;idMvt:integer);
 begin
    FsaidaData:=saidaData;
    FsaidaHora:=saidaHora;
-   Fvalor:=valor;
-   FidMvt:=idMvt;
+   Fvalor    :=valor;
+   FidMvt    :=idMvt;
 end;
 
 destructor TMovimento.Destroy;

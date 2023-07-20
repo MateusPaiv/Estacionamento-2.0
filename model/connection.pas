@@ -9,25 +9,30 @@ uses
   FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, System.Contnrs,ClienteModel,
   Vcl.Dialogs,Generics.Collections,VeiculoModel ,FuncionarioModel,MovimentoModel,DateUtils
-  ,UsuariosModel;
+  ,UsuariosModel, FireDAC.UI.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool,
+  FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Phys.PG, FireDAC.Phys.PGDef;
 
 type
   Tdm = class(TDataModule)
     Env: TSQLEnv;
     Inst: TSQLInstall;
+    conn: TFDConnection;
+    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
 
     procedure DataModuleCreate(Sender: TObject);
   private
-    procedure initConnection;
+
   public
     function cadastrarClientes(Clientes:TObjectList<TCliente>):Boolean;
     function cadastrarVeiculo(Veiculos:TObjectList<TVeiculo>):Boolean;
     function cadastrarFuncionario(Funcionarios:TObjectList<TFuncionario>):Boolean;
+     function editarFuncionario(Funcionarios:TObjectList<TFuncionario>):Boolean;
     function cadastrarUsuario(Usuarios:TObjectList<TUsuarios>):Boolean;
     function login(usuario,senha:string;id:integer):boolean;
     function lancarMovimento(Movimentos:TobjectList<TMovimento>):Boolean;
     function BaixarMovimento(Movimentos:TobjectList<TMovimento>):Boolean;
     procedure mostrarCdgMvt;
+    procedure initConnection;
   end;
 
 var dm: Tdm;
@@ -60,6 +65,7 @@ begin
    Sistema.Insert('movimentos');
    Sistema.SetField('entrada_data',Sistema.Hoje);
    Sistema.setField('entrada_hora',TimeToStr(HoraHoje));
+   Sistema.SetField('saida_prevista',TimeToStr(Movimentos[0].saidaPrevista));
    Sistema.SetField('id_mvt_cadastro_func',Movimentos[0].idFuncCadastrouMovimento);
    Sistema.SetField('id_mvt_manobrista_func',Movimentos[0].idFuncManobristaMovimento);
    Sistema.SetField('id_mvt_veic',Movimentos[0].idVeic);
@@ -71,11 +77,9 @@ begin
 end;
 
 function Tdm.Login(usuario, senha: string;id:integer): boolean;
-var Q:IQuery;
 begin
-    Q:=SqlToQuery('SELECT usuario,senha FROM usuarios WHERE usuario='+QuotedStr(usuario)+' AND senha='+QuotedStr(senha));
-    idTest:=id;
-    Result:=true;
+   idTest:=id;
+   Result:=true;
 end;
 
 function Tdm.cadastrarClientes(Clientes:TObjectList<TCliente>): Boolean;
@@ -136,6 +140,23 @@ begin
    initConnection;
 end;
 
+function Tdm.editarFuncionario(Funcionarios: TObjectList<TFuncionario>): Boolean;
+begin
+   Sistema.Insert('funcionarios');
+   Sistema.SetField('nome',Funcionarios[0].nome);
+   Sistema.SetField('sobrenome',Funcionarios[0].sobrenome);
+   Sistema.SetField('cpf',Funcionarios[0].cpf);
+   Sistema.SetField('celular',Funcionarios[0].celular);
+   Sistema.SetField('cep',Funcionarios[0].cep);
+   Sistema.SetField('endereco',Funcionarios[0].endereco);
+   Sistema.SetField('numero',Funcionarios[0].numero);
+   Sistema.Post('id_func='+IntToStr(Funcionarios[0].id));
+   Sistema.Commit;
+
+    Aviso('Funcionário editado com sucesso');
+
+end;
+
 procedure Tdm.initConnection;
 begin
    Sistema.DataBaseName:='estacionamento';
@@ -153,6 +174,7 @@ var Q:IQuery;
 begin
    Q:=SqlToQuery('SELECT id_mvt FROM movimentos ORDER BY id_mvt DESC LIMIT 1');
    MessageDlg('Código para entrega ao final do serviço para ser realizado o pagamento: '+Q.FieldByName('id_mvt').AsInteger.ToString,mtInformation,[mbOK],0);
+   Q.Close;Q.Free;
 end;
 
 end.

@@ -13,6 +13,7 @@ type
     Panel1: TPanel;
     edtPlaca: TSQLEd;
     btnLancaMvt: TSQLBtn;
+    edtHora: TSQLEd;
     procedure btnLancaMvtClick(Sender: TObject);
   private
     { Private declarations }
@@ -35,7 +36,7 @@ var mvtController: TMovimentoController;
     HoraHoje:TTime;
 begin
    HoraHoje:=TimeOf(Now);
-   mvtController.lancarMovimento(Sistema.Hoje,horaHoje,1,1,edtPlaca.Text);
+   mvtController.lancarMovimento(Sistema.Hoje,horaHoje,StrToTime(edtHora.Text),1,1,edtPlaca.Text);
 end;
 
 end.

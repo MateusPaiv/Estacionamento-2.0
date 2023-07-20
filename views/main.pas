@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Menus, Vcl.ExtCtrls,
-  Vcl.Buttons, SQLBtn,ClienteView,FuncionarioView,LancarMovimentoView,BaixarMovimentoView,LoginView;
+  Vcl.Buttons, SQLBtn,ClienteView,FuncionarioView,LancarMovimentoView,BaixarMovimentoView,
+  LoginView,VagasView;
 
 type
   TfrmMain = class(TForm)
@@ -28,6 +29,8 @@ type
     btnBaixaMvt: TSQLBtn;
     btnUpMvtBaixados: TSQLBtn;
     btnAtulizarVagas: TSQLBtn;
+    Panel1: TPanel;
+    btnVisualizarEstacionamento: TSQLBtn;
     procedure btnCadClienteClick(Sender: TObject);
     procedure btnCadFuncClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -36,6 +39,7 @@ type
     procedure FormActivate(Sender: TObject);
     procedure btnAtulizarVagasClick(Sender: TObject);
     procedure btnUpMvtBaixadosClick(Sender: TObject);
+    procedure btnVisualizarEstacionamentoClick(Sender: TObject);
   private
     { Private declarations }
     cadCliente: TfrmClienteView;
@@ -54,9 +58,6 @@ uses
   SplashView,MovimentoController;
 
 {$R *.dfm}
-
-
-
 procedure TfrmMain.btnBaixaMvtClick(Sender: TObject);
 begin
    frmBxMovimento:=TfrmBxMovimento.Create(self);
@@ -89,6 +90,12 @@ end;
 procedure TfrmMain.btnUpMvtBaixadosClick(Sender: TObject);
 begin
    lblMvtBaixados.Caption := mvtControl.movimentosBaixados;
+end;
+
+procedure TfrmMain.btnVisualizarEstacionamentoClick(Sender: TObject);
+begin
+  frmVagasView := TFrmVagasView.create(nil);
+  frmVagasView.ShowModal;
 end;
 
 procedure TfrmMain.FormActivate(Sender: TObject);

@@ -21,7 +21,8 @@ uses
   LoginView in 'views\LoginView.pas' {frmLogin},
   UsuariosModel in 'model\UsuariosModel.pas',
   UsuarioController in 'controllers\UsuarioController.pas',
-  LoginController in 'controllers\LoginController.pas';
+  LoginController in 'controllers\LoginController.pas',
+  VagasView in 'views\VagasView.pas' {frmVagasView};
 
 {$R *.res}
 

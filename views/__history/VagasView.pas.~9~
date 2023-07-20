@@ -1,0 +1,31 @@
+unit VagasView;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, RPStringGrid,SqlDtg,MovimentoController;
+
+type
+  TfrmVagasView = class(TForm)
+    Grid: TSqlDtGrid;
+    procedure FormActivate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmVagasView: TfrmVagasView;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmVagasView.FormActivate(Sender: TObject);
+begin
+  mvtControl.carregarGrid(Grid);
+end;
+
+end.

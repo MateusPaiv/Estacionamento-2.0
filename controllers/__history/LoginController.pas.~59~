@@ -1,0 +1,53 @@
+unit LoginController;
+
+interface
+uses
+  Vcl.Dialogs, Generics.Collections, MovimentoModel, connection,
+  RpDriverAdapter, SqlFun,vcl.StdCtrls,SysUtils, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client;
+type
+  TLoginController = class
+    private
+    public
+      function logar(usuario,senha:string):boolean;
+  end;
+  var
+    loginControl:TLoginController;
+implementation
+
+{ TLoginController }
+
+function TLoginController.logar(usuario, senha: string): boolean;
+var Q:TFDQuery;
+    id:integer;
+begin
+
+   if(usuario='')or(senha='')then begin
+      AvisoErro('Usuário ou senha estão vazios!');
+      Result:=false;
+      exit;
+   end;
+
+   Q:=TFDQuery.Create(nil);
+
+   Q.Connection:=dm.conn;
+   Q.Close;
+   Q.SQL.Clear;
+   Q.SQL.Text:='SELECT * FROM usuarios WHERE usuario='+QuotedStr(usuario)+' AND senha='+QuotedStr(senha);
+   Q.Open;
+   if not Q.IsEmpty then begin
+      dm.Login(usuario,senha,Q.FieldByName('id_usua_func').AsInteger);
+      Q.Close;Q.Free;
+   end else begin
+      AvisoErro('Usuário/senha não encontrados!');
+      Result:=false;
+      Q.Close;Q.Free;
+   end;
+
+
+
+end;
+
+end.

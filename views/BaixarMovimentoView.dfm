@@ -23,11 +23,9 @@ object frmBxMovimento: TfrmBxMovimento
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 250
-    ExplicitHeight = 116
     object btnLancaMvt: TSQLBtn
       Left = 152
-      Top = 64
+      Top = 96
       Width = 73
       Height = 30
       Caption = 'Lan'#231'ar'

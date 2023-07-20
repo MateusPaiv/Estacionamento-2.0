@@ -235,8 +235,8 @@ object frmClienteView: TfrmClienteView
           object Label1: TLabel
             Left = 0
             Top = 0
-            Width = 78
-            Height = 29
+            Width = 612
+            Height = 55
             Align = alClient
             Alignment = taCenter
             Caption = 'Clientes'
@@ -247,6 +247,8 @@ object frmClienteView: TfrmClienteView
             Font.Style = [fsUnderline]
             ParentFont = False
             Layout = tlCenter
+            ExplicitWidth = 78
+            ExplicitHeight = 29
           end
         end
       end
@@ -303,8 +305,8 @@ object frmClienteView: TfrmClienteView
         object Label2: TLabel
           Left = 0
           Top = 0
-          Width = 238
-          Height = 29
+          Width = 612
+          Height = 67
           Align = alClient
           Alignment = taCenter
           Caption = 'Cadastro Cliente/Ve'#237'culo'
@@ -315,6 +317,8 @@ object frmClienteView: TfrmClienteView
           Font.Style = [fsUnderline]
           ParentFont = False
           Layout = tlCenter
+          ExplicitWidth = 238
+          ExplicitHeight = 29
         end
       end
       object Panel3: TPanel

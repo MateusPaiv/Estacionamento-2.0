@@ -50,7 +50,7 @@ object frmLogin: TfrmLogin
     Font.Style = []
     ParentFont = False
     TabOrder = 0
-    Text = ''
+    Text = 'mateus'
     Visible = True
     Empty = True
     CloseForm = False
@@ -96,8 +96,9 @@ object frmLogin: TfrmLogin
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    PasswordChar = '*'
     TabOrder = 1
-    Text = ''
+    Text = '1234'
     Visible = True
     Empty = True
     CloseForm = False

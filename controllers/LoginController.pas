@@ -2,7 +2,8 @@ unit LoginController;
 
 interface
 uses
-  RpDriverAdapter,SqlFun,SysUtils,Generics.Collections,connection;
+  Vcl.Dialogs, Generics.Collections, MovimentoModel, connection,
+  RpDriverAdapter, SqlFun,vcl.StdCtrls,SysUtils;
 type
   TLoginController = class
     private
@@ -17,7 +18,6 @@ implementation
 
 function TLoginController.logar(usuario, senha: string): boolean;
 var Q:IQuery;
-    id:integer;
 begin
 
    if(usuario='')or(senha='')then begin
@@ -26,10 +26,16 @@ begin
       exit;
    end;
 
-   Q:=SqlToQuery('SELECT id_usua_func FROM usuarios WHERE usuario='+QuotedStr(usuario)+' AND senha='+QuotedStr(senha));
+//   Q:=SqlToQuery('SELECT * FROM usuarios WHERE usuario='+QuotedStr(usuario)+' AND senha='+QuotedStr(senha));
+//
+//   if not Q.IsEmpty then begin
+//      AvisoErro('Usuário/senha não encontrados!');
+//      Result:=false;
+//      exit;
+//   end;
+
+   dm.Login(usuario,senha,4);
    Result:=true;
-   id:=Q.getInteger('id_usua_func');
-   dm.Login(usuario,senha,id);
 
 end;
 

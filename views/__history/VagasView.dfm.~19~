@@ -1,0 +1,63 @@
+object frmVagasView: TfrmVagasView
+  Left = 0
+  Top = 0
+  Caption = 'Vagas preenchidas'
+  ClientHeight = 299
+  ClientWidth = 459
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  OnActivate = FormActivate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Grid: TSqlDtGrid
+    Left = 0
+    Top = 0
+    Width = 459
+    Height = 299
+    Align = alClient
+    DefaultRowHeight = 20
+    FixedCols = 0
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goDrawFocusSelected, goColSizing]
+    TabOrder = 0
+    Columns = <
+      item
+        Title.Caption = 'C'#243'digo Movimento'
+        WidthColumn = 150
+        FieldName = 'codigoMvt'
+      end
+      item
+        Title.Caption = 'Modelo'
+        WidthColumn = 100
+        FieldName = 'modelo'
+      end
+      item
+        Title.Caption = 'Ano'
+        WidthColumn = 100
+        FieldName = 'ano'
+      end
+      item
+        Title.Caption = 'Placa'
+        WidthColumn = 100
+        FieldName = 'placa'
+      end
+      item
+        WidthColumn = 64
+        FieldName = 'saidaPrev'
+      end>
+    RowCountMin = 0
+    SelectedIndex = 0
+    Version = '2.0'
+    ColWidths = (
+      150
+      100
+      100
+      100
+      64)
+  end
+end
