@@ -16,8 +16,6 @@ type
   Tdm = class(TDataModule)
     Env: TSQLEnv;
     Inst: TSQLInstall;
-    conn: TFDConnection;
-    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
 
     procedure DataModuleCreate(Sender: TObject);
   private
@@ -26,7 +24,9 @@ type
     function cadastrarClientes(Clientes:TObjectList<TCliente>):Boolean;
     function cadastrarVeiculo(Veiculos:TObjectList<TVeiculo>):Boolean;
     function cadastrarFuncionario(Funcionarios:TObjectList<TFuncionario>):Boolean;
-     function editarFuncionario(Funcionarios:TObjectList<TFuncionario>):Boolean;
+    function editarFuncionario(Funcionarios:TObjectList<TFuncionario>):Boolean;
+    function editarCliente(Clientes:TObjectList<TCliente>):Boolean;
+    function editarVeiculo(Veiculos:TObjectList<TVeiculo>):Boolean;
     function cadastrarUsuario(Usuarios:TObjectList<TUsuarios>):Boolean;
     function login(usuario,senha:string;id:integer):boolean;
     function lancarMovimento(Movimentos:TobjectList<TMovimento>):Boolean;
@@ -140,6 +140,18 @@ begin
    initConnection;
 end;
 
+function Tdm.editarCliente(Clientes: TObjectList<TCliente>): Boolean;
+begin
+   Sistema.Insert('clientes');
+   Sistema.SetField('nome',Clientes[0].nome);
+   Sistema.SetField('sobrenome',Clientes[0].sobrenome);
+   Sistema.SetField('cpf',Clientes[0].cpf);
+   Sistema.Post('id_clie='+IntToStr(Clientes[0].id));
+   Sistema.Commit;
+
+   Aviso('Cliente Editado com sucesso');
+end;
+
 function Tdm.editarFuncionario(Funcionarios: TObjectList<TFuncionario>): Boolean;
 begin
    Sistema.Insert('funcionarios');
@@ -155,6 +167,18 @@ begin
 
     Aviso('Funcionário editado com sucesso');
 
+end;
+
+function Tdm.editarVeiculo(Veiculos: TObjectList<TVeiculo>): Boolean;
+begin
+   Sistema.Insert('veiculos');
+   Sistema.SetField('modelo', Veiculos[0].modelo);
+   Sistema.SetField('placa', Veiculos[0].placa);
+   Sistema.SetField('ano', Veiculos[0].ano);
+   Sistema.Post('id_veic_clie='+IntToStr(Veiculos[0].codigoCliente));
+   Sistema.Commit;
+
+   Aviso('Veículo editado com sucesso');
 end;
 
 procedure Tdm.initConnection;

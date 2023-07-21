@@ -1,0 +1,206 @@
+unit connection;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, SqlSis,RpDriverAdapter,SqlFun,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client, System.Contnrs,ClienteModel,
+  Vcl.Dialogs,Generics.Collections,VeiculoModel ,FuncionarioModel,MovimentoModel,DateUtils
+  ,UsuariosModel, FireDAC.UI.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool,
+  FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Phys.PG, FireDAC.Phys.PGDef;
+
+type
+  Tdm = class(TDataModule)
+    Env: TSQLEnv;
+    Inst: TSQLInstall;
+    conn: TFDConnection;
+    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
+
+    procedure DataModuleCreate(Sender: TObject);
+  private
+
+  public
+    function cadastrarClientes(Clientes:TObjectList<TCliente>):Boolean;
+    function cadastrarVeiculo(Veiculos:TObjectList<TVeiculo>):Boolean;
+    function cadastrarFuncionario(Funcionarios:TObjectList<TFuncionario>):Boolean;
+    function editarFuncionario(Funcionarios:TObjectList<TFuncionario>):Boolean;
+    function editarCliente(Clientes:TObjectList<TCliente>):Boolean;
+    function editarVeiculo(Veiculos:TObjectList<TVeiculo>):Boolean;
+    function cadastrarUsuario(Usuarios:TObjectList<TUsuarios>):Boolean;
+    function login(usuario,senha:string;id:integer):boolean;
+    function lancarMovimento(Movimentos:TobjectList<TMovimento>):Boolean;
+    function BaixarMovimento(Movimentos:TobjectList<TMovimento>):Boolean;
+    procedure mostrarCdgMvt;
+    procedure initConnection;
+  end;
+
+var dm: Tdm;
+     idTest:integer;
+
+implementation
+{$R *.dfm}
+
+{ TDataModule1 }
+
+function Tdm.BaixarMovimento(Movimentos: TobjectList<TMovimento>): Boolean;
+var horaHoje:TTime;
+begin
+   horaHoje:=TimeOf(Now);
+   Sistema.Insert('movimentos');
+   Sistema.SetField('saida_data',Sistema.Hoje);
+   Sistema.SetField('saida_hora',TimeToStr(horaHoje));
+   Sistema.SetField('valor',Movimentos[0].valor);
+   Sistema.Post('id_mvt='+IntToStr(Movimentos[0].idMvt));
+   Sistema.Commit;
+
+   Aviso('Valor do serviço:'+CurrToStr(Movimentos[0].valor));
+end;
+
+function Tdm.lancarMovimento(Movimentos: TobjectList<TMovimento>): Boolean;
+var HoraHoje:TTime;
+    DataHoje:TDate;
+begin
+   HoraHoje:= TimeOf(Now);
+   Sistema.Insert('movimentos');
+   Sistema.SetField('entrada_data',Sistema.Hoje);
+   Sistema.setField('entrada_hora',TimeToStr(HoraHoje));
+   Sistema.SetField('saida_prevista',TimeToStr(Movimentos[0].saidaPrevista));
+   Sistema.SetField('id_mvt_cadastro_func',Movimentos[0].idFuncCadastrouMovimento);
+   Sistema.SetField('id_mvt_manobrista_func',Movimentos[0].idFuncManobristaMovimento);
+   Sistema.SetField('id_mvt_veic',Movimentos[0].idVeic);
+   Sistema.Post;
+   Sistema.Commit;
+   Aviso('Movimento lançado!');
+
+   mostrarCdgMvt;
+end;
+
+function Tdm.Login(usuario, senha: string;id:integer): boolean;
+begin
+   idTest:=id;
+   Result:=true;
+end;
+
+function Tdm.cadastrarClientes(Clientes:TObjectList<TCliente>): Boolean;
+begin
+   Sistema.Insert('clientes');
+   Sistema.SetField('nome',Clientes[0].nome);
+   Sistema.SetField('sobrenome',Clientes[0].sobrenome);
+   Sistema.SetField('cpf',Clientes[0].cpf);
+   Sistema.Post;
+   Sistema.Commit;
+
+   Aviso('Cliente cadastrado com sucesso');
+end;
+
+function Tdm.cadastrarFuncionario(Funcionarios: TObjectList<TFuncionario>): Boolean;
+begin
+   Sistema.Insert('funcionarios');
+   Sistema.SetField('nome',Funcionarios[0].nome);
+   Sistema.SetField('sobrenome',Funcionarios[0].sobrenome);
+   Sistema.SetField('cpf',Funcionarios[0].cpf);
+   Sistema.SetField('celular',Funcionarios[0].celular);
+   Sistema.SetField('cep',Funcionarios[0].cep);
+   Sistema.SetField('endereco',Funcionarios[0].endereco);
+   Sistema.SetField('numero',Funcionarios[0].numero);
+   Sistema.Post;
+   Sistema.Commit;
+
+   Aviso('Funcionário cadastrado com sucesso');
+end;
+
+function Tdm.cadastrarUsuario(Usuarios: TObjectList<TUsuarios>): Boolean;
+begin
+   Sistema.Insert('usuarios');
+   Sistema.SetField('usuario',Usuarios[0].usuario);
+   Sistema.SetField('senha',Usuarios[0].senha);
+   Sistema.SetField('id_usua_func',Usuarios[0].idFunc);
+   Sistema.Post;
+   Sistema.Commit;
+
+   Aviso('Usuário cadastrado com sucesso');
+end;
+
+function Tdm.cadastrarVeiculo(Veiculos: TObjectList<TVeiculo>): Boolean;
+begin
+   Sistema.Insert('veiculos');
+   Sistema.SetField('modelo', Veiculos[0].modelo);
+   Sistema.SetField('placa', Veiculos[0].placa);
+   Sistema.SetField('ano', Veiculos[0].ano);
+   Sistema.SetField('id_veic_clie', Veiculos[0].codigoCliente);
+   Sistema.Post;
+   Sistema.Commit;
+
+   Aviso('Veículo cadastrado com sucesso');
+end;
+
+procedure Tdm.DataModuleCreate(Sender: TObject);
+begin
+   initConnection;
+end;
+
+function Tdm.editarCliente(Clientes: TObjectList<TCliente>): Boolean;
+begin
+   Sistema.Insert('clientes');
+   Sistema.SetField('nome',Clientes[0].nome);
+   Sistema.SetField('sobrenome',Clientes[0].sobrenome);
+   Sistema.SetField('cpf',Clientes[0].cpf);
+   Sistema.Post('id_clie='+IntToStr(Clientes[0].id));
+   Sistema.Commit;
+
+   Aviso('Cliente Editado com sucesso');
+end;
+
+function Tdm.editarFuncionario(Funcionarios: TObjectList<TFuncionario>): Boolean;
+begin
+   Sistema.Insert('funcionarios');
+   Sistema.SetField('nome',Funcionarios[0].nome);
+   Sistema.SetField('sobrenome',Funcionarios[0].sobrenome);
+   Sistema.SetField('cpf',Funcionarios[0].cpf);
+   Sistema.SetField('celular',Funcionarios[0].celular);
+   Sistema.SetField('cep',Funcionarios[0].cep);
+   Sistema.SetField('endereco',Funcionarios[0].endereco);
+   Sistema.SetField('numero',Funcionarios[0].numero);
+   Sistema.Post('id_func='+IntToStr(Funcionarios[0].id));
+   Sistema.Commit;
+
+    Aviso('Funcionário editado com sucesso');
+
+end;
+
+function Tdm.editarVeiculo(Veiculos: TObjectList<TVeiculo>): Boolean;
+begin
+   Sistema.Insert('veiculos');
+   Sistema.SetField('modelo', Veiculos[0].modelo);
+   Sistema.SetField('placa', Veiculos[0].placa);
+   Sistema.SetField('ano', Veiculos[0].ano);
+   Sistema.Post('id_veic_clie='+IntToStr(Veiculos[0].codigoCliente));
+   Sistema.Commit;
+
+   Aviso('Veículo cadastrado com sucesso');
+end;
+
+procedure Tdm.initConnection;
+begin
+   Sistema.DataBaseName:='estacionamento';
+   Sistema.SQLServer:='localhost';
+   Sistema.SQLPassword:='3099';
+   Sistema.SQLUserName:='postgres';
+   Sistema.TypeServer:=tsPostGreSQL;
+   Sistema.Init;
+end;
+
+
+
+procedure Tdm.mostrarCdgMvt;
+var Q:IQuery;
+begin
+   Q:=SqlToQuery('SELECT id_mvt FROM movimentos ORDER BY id_mvt DESC LIMIT 1');
+   MessageDlg('Código para entrega ao final do serviço para ser realizado o pagamento: '+Q.FieldByName('id_mvt').AsInteger.ToString,mtInformation,[mbOK],0);
+   Q.Close;Q.Free;
+end;
+
+end.

@@ -2,7 +2,7 @@ object frmClienteView: TfrmClienteView
   Left = 0
   Top = 0
   Caption = 'Cadastro de cliente'
-  ClientHeight = 411
+  ClientHeight = 420
   ClientWidth = 614
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -20,22 +20,22 @@ object frmClienteView: TfrmClienteView
     Left = 0
     Top = 0
     Width = 614
-    Height = 411
+    Height = 420
     Align = alClient
-    ActiveCard = viewClientes
+    ActiveCard = viewCadastraCliente
     Caption = 'Clientes'
     TabOrder = 0
     object viewClientes: TCard
       Left = 1
       Top = 1
       Width = 612
-      Height = 409
+      Height = 418
       Caption = 'viewClientes'
       CardIndex = 0
       TabOrder = 0
       object pnlButtons: TPanel
         Left = 0
-        Top = 347
+        Top = 356
         Width = 612
         Height = 62
         Align = alBottom
@@ -134,7 +134,7 @@ object frmClienteView: TfrmClienteView
         Left = 0
         Top = 0
         Width = 612
-        Height = 347
+        Height = 356
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 1
@@ -143,7 +143,7 @@ object frmClienteView: TfrmClienteView
           Left = 50
           Top = 75
           Width = 512
-          Height = 252
+          Height = 261
           Margins.Left = 50
           Margins.Top = 20
           Margins.Right = 50
@@ -155,12 +155,14 @@ object frmClienteView: TfrmClienteView
             Left = 0
             Top = 0
             Width = 512
-            Height = 252
+            Height = 261
             Align = alClient
+            ColCount = 6
             DefaultRowHeight = 20
             FixedCols = 0
             Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goDrawFocusSelected, goColSizing]
             TabOrder = 0
+            OnSelectCell = GridSelectCell
             Columns = <
               item
                 Title.Caption = 'Nome'
@@ -212,6 +214,16 @@ object frmClienteView: TfrmClienteView
                 Title.Font.Style = []
                 WidthColumn = 100
                 FieldName = 'placa'
+              end
+              item
+                Title.Caption = 'C'#243'digo'
+                Title.Font.Charset = DEFAULT_CHARSET
+                Title.Font.Color = clWindowText
+                Title.Font.Height = -13
+                Title.Font.Name = 'Roboto'
+                Title.Font.Style = []
+                WidthColumn = 64
+                FieldName = 'id'
               end>
             RowCountMin = 0
             SelectedIndex = 0
@@ -221,7 +233,8 @@ object frmClienteView: TfrmClienteView
               100
               100
               100
-              100)
+              100
+              64)
           end
         end
         object pnlTitle: TPanel
@@ -257,13 +270,14 @@ object frmClienteView: TfrmClienteView
       Left = 1
       Top = 1
       Width = 612
-      Height = 409
+      Height = 418
       Caption = 'viewCadastraCliente'
       CardIndex = 1
       TabOrder = 1
+      OnExit = viewCadastraClienteExit
       object Panel1: TPanel
         Left = 0
-        Top = 359
+        Top = 368
         Width = 612
         Height = 50
         Align = alBottom
@@ -325,7 +339,7 @@ object frmClienteView: TfrmClienteView
         Left = 0
         Top = 67
         Width = 612
-        Height = 292
+        Height = 301
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 2
@@ -334,7 +348,7 @@ object frmClienteView: TfrmClienteView
           Left = 200
           Top = 3
           Width = 212
-          Height = 286
+          Height = 295
           Margins.Left = 200
           Margins.Right = 200
           Align = alClient
@@ -343,7 +357,7 @@ object frmClienteView: TfrmClienteView
           object btnCadastrarClie: TSQLBtn
             AlignWithMargins = True
             Left = 40
-            Top = 249
+            Top = 258
             Width = 132
             Height = 34
             Margins.Left = 40
@@ -646,7 +660,7 @@ object frmClienteView: TfrmClienteView
             ColorNormal = clWhite
             ColorTextNormal = clBlack
             ColorTextNotEnabled = clWhite
-            Title = 'Nome'
+            Title = 'Nome:'
             TitlePos = tppTop
             TitleFont.Charset = DEFAULT_CHARSET
             TitleFont.Color = clWindowText

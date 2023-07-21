@@ -1,8 +1,8 @@
 object dm: Tdm
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Height = 150
-  Width = 215
+  Height = 206
+  Width = 225
   object Env: TSQLEnv
     ShowException = True
     Btns.FontColorBlack = clBlack
@@ -80,22 +80,5 @@ object dm: Tdm
     TypeServer = tsOracle
     Left = 24
     Top = 32
-  end
-  object conn: TFDConnection
-    Params.Strings = (
-      'Database=estacionamento'
-      'User_Name=postgres'
-      'Password=3099'
-      'Server=localhost'
-      'DriverID=PG')
-    Left = 152
-    Top = 80
-  end
-  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
-    VendorLib = 
-      'C:\Users\Eduardo\Documents\Delphi\Estacionamento\Win32\Debug\lib' +
-      '\libpq.dll'
-    Left = 40
-    Top = 104
   end
 end

@@ -21,7 +21,7 @@ object frmFuncionarioView: TfrmFuncionarioView
     Width = 614
     Height = 411
     Align = alClient
-    ActiveCard = viewFuncionarios
+    ActiveCard = viewCadastraUsuario
     Caption = 'Funcionario'
     TabOrder = 0
     object viewFuncionarios: TCard
@@ -258,7 +258,6 @@ object frmFuncionarioView: TfrmFuncionarioView
             RowCountMin = 0
             SelectedIndex = 0
             Version = '2.0'
-            ExplicitWidth = 513
             ColWidths = (
               100
               100
@@ -305,6 +304,7 @@ object frmFuncionarioView: TfrmFuncionarioView
       Caption = 'ViewCadastraFuncionario'
       CardIndex = 1
       TabOrder = 1
+      OnExit = ViewCadastraFuncionarioExit
       object Panel1: TPanel
         Left = 0
         Top = 359
@@ -775,6 +775,7 @@ object frmFuncionarioView: TfrmFuncionarioView
       Caption = 'viewCadastraUsuario'
       CardIndex = 2
       TabOrder = 2
+      OnExit = viewCadastraUsuarioExit
       object btnCadastraUsuario: TSQLBtn
         Left = 256
         Top = 224

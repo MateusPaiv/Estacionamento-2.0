@@ -13,7 +13,8 @@ type
       property placa: string read Fplaca write Fplaca;
       property ano: string read Fano write Fano;
       property codigoCliente: integer read FcodigoCliente write FcodigoCliente;
-      constructor Create(const modelo,placa,ano:string;id:integer);
+      constructor Create(const modelo,placa,ano:string;id:integer); overload;
+      constructor Create(const modelo,placa,ano:string); overload;
   end;
 implementation
 
@@ -26,4 +27,11 @@ begin
    Fano          := ano;
    FcodigoCliente:= id;
 end;
+constructor TVeiculo.Create(const modelo, placa, ano: string);
+begin
+   Fmodelo       := modelo;
+   Fplaca        := placa;
+   Fano          := ano;
+end;
+
 end.

@@ -29,7 +29,6 @@ type
     btnBaixaMvt: TSQLBtn;
     btnUpMvtBaixados: TSQLBtn;
     btnAtulizarVagas: TSQLBtn;
-    Panel1: TPanel;
     btnVisualizarEstacionamento: TSQLBtn;
     procedure btnCadClienteClick(Sender: TObject);
     procedure btnCadFuncClick(Sender: TObject);
