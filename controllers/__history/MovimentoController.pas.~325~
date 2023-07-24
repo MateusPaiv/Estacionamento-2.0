@@ -81,21 +81,21 @@ begin
    i:=1;
    Q:=
    SqlToQuery(
-     ' select MAX(saida_prevista::time),id_mvt_veic'+
+     ' select MAX(saida_prevista::time),id_mvt_veic,m.id_mvt'+
      ' ,v.modelo,v.ano,v.placa from movimentos as m'+
      ' inner join veiculos v on v.id_veic=m.id_mvt_veic'+
      ' where m.entrada_data='+QuotedStr(DatetoStr(Sistema.Hoje))+' and valor is null'+
-     ' group by m.id_mvt_veic,v.id_veic, m.saida_prevista'+
-     ' order by saida_prevista desc  limit 1'
+     ' group by m.id_mvt_veic,m.id_mvt,v.id_veic, m.saida_prevista'+
+     ' order by saida_prevista desc'
    );
 
    if not Q.IsEmpty then begin
      while not Q.Eof do begin
        Grid.Cells[Grid.GetColumn('codigoMvt'),i]:=Q.getString('id_mvt');
-       Grid.Cells[Grid.GetColumn('sobrenome'),i]:=Q.getString('sobrenome');
        Grid.Cells[Grid.GetColumn('modelo'),i]:=Q.getString('modelo');
-       Grid.Cells[Grid.GetColumn('ano'),i]:=Q.getString('ano');
        Grid.Cells[Grid.GetColumn('placa'),i]:=Q.getString('placa');
+       Grid.Cells[Grid.GetColumn('ano'),i]:=Q.getString('ano');
+       Grid.Cells[Grid.GetColumn('saidaPrev'),i]:=Q.getString('max');
        inc(i);
        if Grid.RowCount < i then begin
           Grid.CreateNewRow;

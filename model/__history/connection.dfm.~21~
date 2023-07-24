@@ -1,8 +1,8 @@
 object dm: Tdm
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Height = 150
-  Width = 215
+  Height = 206
+  Width = 225
   object Env: TSQLEnv
     ShowException = True
     Btns.FontColorBlack = clBlack
@@ -80,9 +80,5 @@ object dm: Tdm
     TypeServer = tsOracle
     Left = 24
     Top = 32
-  end
-  object FDQuery1: TFDQuery
-    Left = 96
-    Top = 64
   end
 end

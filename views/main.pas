@@ -27,7 +27,6 @@ type
     pnlLancaMov: TPanel;
     btnLancarMovimento: TSQLBtn;
     btnBaixaMvt: TSQLBtn;
-    btnUpMvtBaixados: TSQLBtn;
     btnAtulizarVagas: TSQLBtn;
     btnVisualizarEstacionamento: TSQLBtn;
     procedure btnCadClienteClick(Sender: TObject);
@@ -37,7 +36,6 @@ type
     procedure btnBaixaMvtClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure btnAtulizarVagasClick(Sender: TObject);
-    procedure btnUpMvtBaixadosClick(Sender: TObject);
     procedure btnVisualizarEstacionamentoClick(Sender: TObject);
   private
     { Private declarations }
@@ -84,11 +82,7 @@ end;
 procedure TfrmMain.btnAtulizarVagasClick(Sender: TObject);
 begin
    lblVagasPreenchidas.Caption := mvtControl.vagasPreenchidas;
-end;
-
-procedure TfrmMain.btnUpMvtBaixadosClick(Sender: TObject);
-begin
-   lblMvtBaixados.Caption := mvtControl.movimentosBaixados;
+      lblMvtBaixados.Caption := mvtControl.movimentosBaixados;
 end;
 
 procedure TfrmMain.btnVisualizarEstacionamentoClick(Sender: TObject);

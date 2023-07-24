@@ -1,8 +1,8 @@
 object dm: Tdm
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Height = 206
-  Width = 225
+  Height = 94
+  Width = 157
   object Env: TSQLEnv
     ShowException = True
     Btns.FontColorBlack = clBlack
@@ -72,8 +72,8 @@ object dm: Tdm
     GeraLogComandos = False
     UtilizaPWL = False
     ColorNotEnabledSqlEd = clGray
-    Left = 88
-    Top = 56
+    Left = 96
+    Top = 32
   end
   object Inst: TSQLInstall
     RPUserPrivilegesOracle = 'CONNECT, RESOURCE, CREATE VIEW, DROP ANY VIEW'
